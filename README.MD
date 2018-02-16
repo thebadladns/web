@@ -1,4 +1,6 @@
 BADLADNS WEB DRAFT
 ==================
 
-ha ha yeah
+https://thebadladns.github.io/web/
+
+ha ha yeah ignore this
