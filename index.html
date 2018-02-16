@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>Welcome to the Badladns</title>
+        <style>
+            div {
+                font-family: "Courier New", Courier, monospace;
+            }
+            
+            #parent{
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #child{
+                width: 100%;
+                height: 100%;
+                overflow: scroll;
+                padding-bottom: 17px;
+                padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+                cursor: grab;
+            }
+        </style>
+        <script type="text/javascript">
+        /**
+         * @fileoverview dragscroll - scroll area by dragging
+         * @version 0.0.8
+         * 
+         * @license MIT, see http://github.com/asvd/dragscroll
+         * @copyright 2015 asvd <heliosframework@gmail.com> 
+         */
+
+
+        (function (root, factory) {
+            if (typeof define === 'function' && define.amd) {
+                define(['exports'], factory);
+            } else if (typeof exports !== 'undefined') {
+                factory(exports);
+            } else {
+                factory((root.dragscroll = {}));
+            }
+        }(this, function (exports) {
+            var _window = window;
+            var _document = document;
+            var mousemove = 'mousemove';
+            var mouseup = 'mouseup';
+            var mousedown = 'mousedown';
+            var EventListener = 'EventListener';
+            var addEventListener = 'add'+EventListener;
+            var removeEventListener = 'remove'+EventListener;
+            var newScrollX, newScrollY;
+
+            var dragged = [];
+            var reset = function(i, el) {
+                for (i = 0; i < dragged.length;) {
+                    el = dragged[i++];
+                    el = el.container || el;
+                    el[removeEventListener](mousedown, el.md, 0);
+                    _window[removeEventListener](mouseup, el.mu, 0);
+                    _window[removeEventListener](mousemove, el.mm, 0);
+                }
+
+                // cloning into array since HTMLCollection is updated dynamically
+                dragged = [].slice.call(_document.getElementsByClassName('dragscroll'));
+                for (i = 0; i < dragged.length;) {
+                    (function(el, lastClientX, lastClientY, pushed, scroller, cont){
+                        (cont = el.container || el)[addEventListener](
+                            mousedown,
+                            cont.md = function(e) {
+                                if (!el.hasAttribute('nochilddrag') ||
+                                    _document.elementFromPoint(
+                                        e.pageX, e.pageY
+                                    ) == cont
+                                ) {
+                                    pushed = 1;
+                                    lastClientX = e.clientX;
+                                    lastClientY = e.clientY;
+
+                                    e.preventDefault();
+                                }
+                            }, 0
+                        );
+
+                        _window[addEventListener](
+                            mouseup, cont.mu = function() {pushed = 0;}, 0
+                        );
+
+                        _window[addEventListener](
+                            mousemove,
+                            cont.mm = function(e) {
+                                if (pushed) {
+                                    (scroller = el.scroller||el).scrollLeft -=
+                                        newScrollX = (- lastClientX + (lastClientX=e.clientX));
+                                    scroller.scrollTop -=
+                                        newScrollY = (- lastClientY + (lastClientY=e.clientY));
+                                    if (el == _document.body) {
+                                        (scroller = _document.documentElement).scrollLeft -= newScrollX;
+                                        scroller.scrollTop -= newScrollY;
+                                    }
+                                }
+                            }, 0
+                        );
+                     })(dragged[i++]);
+                }
+            }
+
+              
+            if (_document.readyState == 'complete') {
+                reset();
+            } else {
+                _window[addEventListener]('load', reset, 0);
+            }
+
+            exports.reset = reset;
+        }));
+        </script>
+    </head>
+    <body>
+        <div id="parent">
+            <div id="child" class="dragscroll">
+                <div style="position: relative; right: -130px; width: 240px; border: 1px solid black; font-size: 2em;">THE BADLADNS</div>
+                <div style="position: relative; left: 30px;">,,</div>
+                <div style="position: relative; top: 50px; left: 60px;">,,</div>
+                <div style="position: relative; top: 100px; left: 45px;">,,</div>
+                <div style="position: relative; top: 75px; left: 745px;">,,</div>
+                <div style="position: relative; top: 175px; left: 1145px;">xx</div>
+                <div style="background: ltgray; width: 160px; position: relative; top: 1075px; left: 640px;">
+                <pre>
+█▀▀▀▀▀▀▀▀▀▀▀▀▀█
+█     ▄▄  ▄   █▓
+█     ██      █▓
+                </pre>
+                </div>
+                <div style="position: relative; top: 500px; left: 500px; width:70; background: lime;">
+                   <pre>
+===O===
+||   ||,,
+``    ,,
+                   </pre>
+                </div>
+                <div style="position: relative; top: 320px; left: 812px; width:32px; background: gold; font-size: 1.5em">
+                    <a href="www.bananas.com">⚿</a>
+                    <pre>
+Is this the key to reality?
+                    </pre>
+                </div>
+                <div style="background: light-gray; width: 160px; position: relative; top: 1075px; left: 1640px; width: 240px;">
+                    <pre>
+TO THE WASTELADNS▶
+   █         █ 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
