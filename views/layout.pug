@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Welcome to the Badladns!
+    link(href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet")
+    link(rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css")
+    link(rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css")
+    link(rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css") 
+    link(rel='stylesheet', href='/stylesheets/sidebar.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div(id="layout")
+      div(id="menu")
+        div(class="pure-menu")
+          span(class="pure-menu-heading") The Badladns
+          ul(class="pure-menu-list")
+            li(class="pure-menu-item") 
+              a(href="#") About
+            li(class="pure-menu-item")
+              a(href="#") Projects
+            li(class="pure-menu-item") 
+              a(href="#") Others?
+        div(class="top-banner")
+          - for (var x = 0; x < 10; x++)
+            span WELCOME TO THE BADLADNS 
+          // img(src="/images/badladns-logo.png" width="100%")
+      div(id="content")
+        block content

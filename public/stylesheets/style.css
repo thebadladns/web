@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font-size: 16px;
+  font-family: 'Anonymous Pro', 'Courier new', monospace;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.content {
+  text-align: center; 
+}
+
+.card
+{
+  text-align: right;
+  float: right;
+  font-size: 14px;
+}

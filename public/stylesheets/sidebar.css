@@ -1,0 +1,28 @@
+#menu {
+    border-bottom: 2px solid black;
+    background-color:#fff;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+    min-width: 700px;
+}
+
+.pure-menu {
+    border-right: 2px solid black;   
+    width:200px;
+    float: left;
+    overflow: auto;
+    padding: 5px;
+}
+
+.top-banner {
+    padding: 5px;
+    float: left;
+    width: 400px;
+    bottom: 1px;
+}
+
+.pure-menu-heading {
+    margin-bottom: 1em;
+    border-bottom: 2px solid black;
+}
