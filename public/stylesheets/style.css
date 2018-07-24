@@ -24,6 +24,12 @@ a {
   color: gray;
 }
 
+.character-cards::after {  
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .character-card {
   width: 50%;
   min-width: 322px;
