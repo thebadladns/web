@@ -8,7 +8,7 @@ a {
   color: #00B7FF;
 }
 
-.content {
+.centered {
   text-align: center; 
 }
 
@@ -17,4 +17,59 @@ a {
   text-align: right;
   float: right;
   font-size: 14px;
+}
+
+.secret
+{
+  color: gray;
+}
+
+.character-card {
+  width: 50%;
+  min-width: 322px;
+  max-width: 360px;
+  border: 1px solid #9e9e9e;
+  border-radius: 2px;
+  display:block;
+  margin: 10px;
+  float: left;
+}
+
+.character-card::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.character-card > img {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.character-card > .card-contents {
+  float: left;
+  padding: 5px;
+  vertical-align: middle;
+  display:table-cell;
+  font-size: 14px;
+}
+
+.card-contents > div {
+  margin-bottom: 10px;
+}
+
+.card-name {
+  margin-top: 5px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.card-list {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.card-list > li {
+  margin-bottom: 5px;
 }

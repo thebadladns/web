@@ -21,4 +21,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { image: "/images/gallery/" + img, desc: gallery[img]});
 });
 
+router.get("/about", function(req, res, next) {
+  res.render('about', {});
+});
+
 module.exports = router;
