@@ -1,9 +1,24 @@
 extends layout
 
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/projects.css')
+
 block content
   div(class="main")
     div(class="header")
       h1 Projects of the Badladns
       p We badladners take on a variety of projects, of many natures. We may fail on what we do, but at least we enjoy it.
     div(class="content")
-      p Content be here
+      each project in projects
+        - var pid = project.id;
+        a(href="/projects/"+pid)
+          div(id="project-" + pid class="project-card")
+            div
+              span(id="title-" + pid class="project-title")= project.title 
+              span(class="secret")  - 
+              span(id="type-" + pid class="secret")= project.type
+              div(id="status-" + pid class="status status-" + project.status)= project.status
+            div(id="year-" + pid)= project.year
+            div(id="short-" + pid)= project.short
+            
+
