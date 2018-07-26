@@ -64,3 +64,42 @@ div.status:hover {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+/* Single project page */
+.project-data {
+    /*margin: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid black;*/
+    min-width: 450px;
+}
+
+.project-data > .left, .project-data > .right {
+    padding: 5px;
+    display: inline-block;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+.highlight {
+    text-decoration: underline;
+}
+
+.footer {
+    border-top: 1px dashed black;
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: right;
+}
+
+.separator {
+    border-bottom: 1px dashed black;
+}
+
+.small-secret {
+    text-align: right;
+    font-size: 14px;
+    color: gray;
+}

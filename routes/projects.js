@@ -9,7 +9,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res) {
-  res.render('project', {project: projectsDB.get(req.params.id)});
+  var project = projectsDB.get(req.params.id);
+  var template = project.template || 'project';
+  res.render(template, {project: projectsDB.get(req.params.id)});
 });
 
 module.exports = router;

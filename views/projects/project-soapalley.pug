@@ -1,0 +1,105 @@
+extends ../layout
+
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/projects.css')
+
+block content
+  div(class="main")
+    div(class="header")
+      div(style="margin-top: 20px")
+        a(href="/projects") < BACK
+      h1= project.title
+      p A badladns project directed by Rafa de la Hoz
+      div(class="project-data")
+        div(class="left secret")
+          p
+            span Project type
+          p
+            span Genre
+          p
+            span Platform
+          p
+            span Year
+        div(class="right")
+          p
+            span Videogame
+          p
+            span Arcade, Puzzle
+          p
+            span Android 
+            span(class="secret") iOS soon?
+          p
+            span 2015-218
+    div(class="separator")
+    div(class="images")
+      // Images be here
+    div(class="separator")
+    div(class="content")
+      h2 About
+      p SOAP ALLEY is an arcade puzzle game about cleaning your pets by throwing colored bubbles.
+      p It has a single endless gameplay mode designed to be played in short bursts.
+      p Special bubbles may help or make the game more difficult, and there is this annoying chemdust laying around...
+      p There are several characters to unlock, and the game tracks your best score, time and bubble count.
+
+      h2 Get it!
+      h3 The game
+      p You can download SOAP ALLEY for Android for free on 
+        a(href="https://play.google.com/store/apps/details?id=badladns.the.soapalley") Google Play Store
+      h3 Game manual
+      p The game manual is available here*:
+      ul
+        li
+          a(href="/???") EU Version
+        li
+          a(href="/???") US Version
+      p(class="small-secret") * Both manuals are applicable, each one is made by a different artist
+      div(class="separator")
+      
+      h2 Project details
+
+      h3 The design
+      p The game core game vision was producing a fun game that was also fast and easy to play.
+      p It's designed with short play sessions in mind, and with the objective of reducing the time required from players as much as possible.
+      p Gameplay wise, it's based on the well established bubble throwing game loop from 1994, with additional mechanics to increase replayability.
+      p The cute, laid-back aesthetics contribute to a relaxed game atmosphere, and the strong core mechanics should allow for many enjoyable play sessions.
+
+      h3 A bit of history
+      p The project started on 2015, as a gift to a special someone.
+      p The original scope was a lot bigger, including an adventure mode and a variety of game mechanics.
+      p And thus, it failed miserably. The development was halted around mid-2016 out of lack of motivation.
+      p In January, 2018, the development is restarted, with a very reduced project scope.
+      p The game is finished in July, 2018. Most of the development time from the past 6 months has been employed in polishing.
+      p The game is finally released in the last days of July, 2018
+
+      h3 The SOAP ALLEY manifesto
+      p SOAP ALLEY is homage and a manifesto. 
+      p A homage to the wonderful core loop of certain game released in 1994 by a japanese company, cherished by players of all ages after countless iterations, clones, and variations. Recently, it has been specially mistreated in the mobile ecosystem. Countless clones lacking in everything that made the original special are currently available, replacing many interesting mechanics with eye-candy and soulless fanfare. SOAP ALLEY tries to recover the spirit of the original, with a tight, fun, core game loop without cheap make up.
+      p It is also a manifesto about how games should behave towards the player.
+      p SOAP ALLEY will not demand your time. It won't bother you with notifications or require you to play every day. 
+      p As a player you shall be able to decide when to play, if at all. It won't also hide it's content behind wait times, or distract you from the core game with ads. 
+      p This is the bare minimum a game shall offer to players. Please note that these statements say nothing about money, or revenue, or monetization. Developers have to make a living, and it is wonderful that they can live off making games. This is a free game by intent. If it were to have ads, they would never be part of the core game loop.
+      p As developers, we have to maintain some basic values. 
+      p As players, we have to demonstrate against evil practices. 
+      p Otherwise, games are going to lose their artistic and recreational value.
+
+      div(class="separator")
+
+      h3 Credits
+      h4 Concept, design, graphics, coding, sound
+      p Rafa de la Hoz (@thegraffo)
+      h4 Additional design, illustration and support
+      p Carlos Catalán (@crljmb)
+      h4 Additional illustration
+      p Elena Villar (@evt1905)
+      h4 Music
+      p (It's a secret)
+      h4 Testing, and lots of support
+      p emechán
+      p pferv
+      p alwarr
+      p bea
+      p bronsonio
+      p manzanita
+      p vero8a
+    div(class="footer")
+      p Product of the badladns, 2018
