@@ -8,6 +8,23 @@ var database = {
             year: "2015-2018",
             type: "videogame",
             short: "Clean your pets in glorious arcade puzzle action! Colorful bubbles await!",
+            long: "▣ Welcome to SOAP ALLEY ▣"+ 
+            "<br><br>" +
+            "SOAP ALLEY is the newest DIY pet cleaning store where your pet can clean itself in our award winning machine (the machine may not have won any awards)" +
+            "<br>" +
+            "Make groups of soap or water bubbles of different flavours in order to clean your pet, but make sure to avoid overflowing the chemical tank, or your cleaning session will be over." +
+            "<br>" +
+            "Our machine is capable of cleaning the most varied pets, so don't hesitate to try it with many different creatures!" +
+            "<br>" +
+            "And always remember to sign your receipt when you leave!" +
+            "<br><br>" +
+            "▣ Features ▣" +
+            "<ul>" +
+            " <li>Classic bubble throwing arcade madness!</li>" +
+            " <li>Unlock different pets and let them shine</li>" +
+            " <li>What is the deal with those mysterious bubbles?</li>" + 
+            " <li>No ads, wait times or other evil artifacts</li>" +
+            "</ul>",
             status: "almost there"
         },
         {
@@ -59,8 +76,17 @@ var database = {
 }
 
 var controller = {
-    getProjects: function() {
+    all: function() {
         return database.list;
+    },
+
+    get: function(projectId) {
+        for (i in database.list) {
+            if (database.list[i].id === projectId)
+                return database.list[i];
+        }
+
+        return null;
     }
 }
 
