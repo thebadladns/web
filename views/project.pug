@@ -10,8 +10,64 @@ block content
         a(href="/projects") < BACK
       h1= project.title
       p= project.short
-    hr
+      if (project.data)
+        div(class="project-data")
+          div(class="left secret")
+            if (project.data.type)
+              p
+                span Project type
+            if (project.data.genre)
+              p
+                span Genre
+            if (project.data.platform)
+              p
+                span Platform
+            if (project.data.year)
+              p
+                span Year
+          div(class="right")
+            if (project.data.type)
+              p
+                span= project.data.type
+            if (project.data.genre)
+              p
+                span= project.data.genre
+            if (project.data.platform)
+              p
+                span= project.data.platform
+            if (project.data.year)
+              p
+                span= project.data.year
+    div(class="separator")
+    div(class="separator")
+    if (images && images.length > 0)
+      div(class="images")
+        ul(class="images")
+          each image in images
+            a(href= image)
+              li
+                img(src= image)
+      div(class="separator")
     div(class="content")
-      p!= project.long
-            
+      if (project.long)
+        p!= project.long
+      if (project.about)
+        h2 About
+        each line in project.about
+          p= line
+      if (project.getit)
+        h2 Get it!
+        p!= project.getit
+      if (project.ludography)
+        h2 Ludography
+        each entry in project.ludography
+          p= "◍ " + entry
+      if (project.credits)
+        div(class="separator")
+        h2 Credits
+        each person, role in project.credits
+          h4= role
+          p!= person
+    div(class="footer")
+      p Product of the badladns, 2018
 

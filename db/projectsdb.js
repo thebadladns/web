@@ -8,6 +8,13 @@ var database = {
             type: "videogame",
             short: "Clean your pets in glorious arcade puzzle action! Colorful bubbles await!",
             template: "projects/project-soapalley",
+            ludography: [
+                "Puzzle Bobble, Taito, 1994",
+                "Magical Drop, Data East, 1995", 
+                "PICO-8 Fantasy Console, Lexaloffle, 20XX", 
+                "Mario’s Picross, Jupiter-Ace-Nintendo, 1995", 
+                "Super Mario World, Nintendo, 1990"
+            ],
             status: "almost there"
         },
         {
@@ -17,6 +24,24 @@ var database = {
             year: "2014",
             type: "videogame",
             short: "A Gameboy nouvelle classic created for the #gbjam",
+            data: {
+                type: "Videogame",
+                genre: "Puzzle Platformer",
+                platform: "Web",
+                year: "2014"
+            },
+            about: ["CATBOMB is a puzzle platformer designed to comply with the aesthetic constraints of the original Game Boy.",
+                    "Follow the adventures of CATBOMB, who has been imprisoned in the dungeon for eating a bomb and is trying to escape.",
+                    "Carry bombs, light them up and use them to clear obstacles on your way to freedom.",
+                    "CATBOMB was created for gbjam3, in 10 days, in the summer of 2014"],
+            getit: "You can play CATBOMB directly on your browser in <a href='https://thegraffo.itch.io/cat-bomb'>itch.io</a> or <a href='https://gamejolt.com/games/cat-bomb/31152'>GameJolt</a>",
+            ludography: [
+                "Donkey Kong, Nintendo, 1994",
+                "Bomberman 64, Hudson Soft, 1997"
+            ],
+            credits: {
+                "Concept, Design, Graphics, Coding": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
+            },
             status: "released"
         },
         {

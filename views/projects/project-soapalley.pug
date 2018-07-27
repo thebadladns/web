@@ -59,8 +59,14 @@ block content
         li
           a(href="/???") US Version
       p(class="small-secret") * Both manuals are applicable, each one is made by a different artist
+
+      if (project.ludography)
+        h2 Ludography
+        each entry in project.ludography
+          p= "◍ " + entry
+
       div(class="separator")
-      
+    
       h2 Project details
 
       h3 The design
