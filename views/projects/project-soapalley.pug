@@ -31,14 +31,20 @@ block content
           p
             span 2015-218
     div(class="separator")
-    div(class="images")
-      // Images be here
     div(class="separator")
+    if (images && images.length > 0)
+      div(class="images")
+        ul(class="images")
+          each image in images
+            a(href= image)
+              li
+                img(src= image)
+      div(class="separator")
     div(class="content")
       h2 About
       p SOAP ALLEY is an arcade puzzle game about cleaning your pets by throwing colored bubbles.
       p It has a single endless gameplay mode designed to be played in short bursts.
-      p Special bubbles may help or make the game more difficult, and there is this annoying chemdust laying around...
+      p Special bubbles can be useful or make your session more difficult, and there is this annoying chemdust laying around...
       p There are several characters to unlock, and the game tracks your best score, time and bubble count.
 
       h2 Get it!
@@ -60,16 +66,16 @@ block content
       h3 The design
       p The game core game vision was producing a fun game that was also fast and easy to play.
       p It's designed with short play sessions in mind, and with the objective of reducing the time required from players as much as possible.
-      p Gameplay wise, it's based on the well established bubble throwing game loop from 1994, with additional mechanics to increase replayability.
+      p Gameplay wise, it's based on the well established bubble throwing game loop, with additional mechanics to increase replayability.
       p The cute, laid-back aesthetics contribute to a relaxed game atmosphere, and the strong core mechanics should allow for many enjoyable play sessions.
 
       h3 A bit of history
-      p The project started on 2015, as a gift to a special someone.
-      p The original scope was a lot bigger, including an adventure mode and a variety of game mechanics.
-      p And thus, it failed miserably. The development was halted around mid-2016 out of lack of motivation.
-      p In January, 2018, the development is restarted, with a very reduced project scope.
-      p The game is finished in July, 2018. Most of the development time from the past 6 months has been employed in polishing.
-      p The game is finally released in the last days of July, 2018
+      p ◍	The project started on 2015, as a gift to a special someone.
+      p ◍	The original scope was a lot bigger, including an adventure mode and a variety of game mechanics.
+      p ◍	And thus, it failed miserably. The development was halted around mid-2016 out of lack of motivation.
+      p ◍	In January, 2018, the development was restarted, with a very reduced project scope.
+      p ◍	The game was finished in July, 2018, most of the development time being employed in polishing.
+      p ◍	SOAP ALLEY was finally released in the last days of July, 2018.
 
       h3 The SOAP ALLEY manifesto
       p SOAP ALLEY is homage and a manifesto. 
@@ -86,13 +92,20 @@ block content
 
       h3 Credits
       h4 Concept, design, graphics, coding, sound
-      p Rafa de la Hoz (@thegraffo)
+      p Rafa de la Hoz (
+        a(href="https://twitter.com/thegraffo") @thegraffo
+        span )
       h4 Additional design, illustration and support
-      p Carlos Catalán (@crljmb)
+      p Carlos Catalán (
+        a(href="https://twitter.com/crljmb") @crljmb
+        span )
       h4 Additional illustration
-      p Elena Villar (@evt1905)
+      p Elena Villar (
+        a(href="https://www.instagram.com/evt1905/") @evt1905
+        span )
       h4 Music
-      p (It's a secret)
+      p ██████████████ 
+        span(class="secret") (Redacted)
       h4 Testing, and lots of support
       p emechán
       p pferv

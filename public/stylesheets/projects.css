@@ -79,6 +79,32 @@ div.status:hover {
     display: inline-block;
 }
 
+div.images {
+    padding: 5px;
+}
+
+ul.images {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+  
+ul.images li {
+    display: inline-block;
+    margin: 10px;
+}
+
+ul.images li img {
+    max-height: 320px;
+}
+
+ul.images li:hover {
+    animation: shake 0.05s; 
+}
+
 h4 {
     text-decoration: underline;
 }
