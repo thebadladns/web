@@ -22,7 +22,27 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/about", function(req, res, next) {
-  res.render('about', {});
+  var cards = [
+    {
+      name: 'Rafa de la Hoz',
+      img: '/images/thegraffo.png', img_alt: '/images/thegraffo-alt.png',
+      social: '<a href="https://twitter.com/thegraffo">@thegraffo</a>',
+      traits: ['Creative extraordinaire', 'Scholar of game design', 'Likes weird things']
+    },
+    {
+      name: 'Carlos Catalán',
+      img: '/images/crljmb.png', img_alt: '/images/crljmb-alt.png',
+      social: '<a href="https://twitter.com/crljmb">@crljmb</a>',
+      traits: ['Illustrateur magnificient', 'Technically wonderful', 'Eats really healthy']
+    },
+  ];
+  cards.sort((a, b) => {
+    var rand = Math.random();
+    if (rand < 0.33) return -1;
+    else if (rand < 0.66) return 0;
+    else return 1;
+  });
+  res.render('about', {cards: cards});
 });
 
 module.exports = router;
