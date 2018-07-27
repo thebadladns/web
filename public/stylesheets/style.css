@@ -1,3 +1,18 @@
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  body {
+      padding: 10px !important;
+  }
+
+  /*#content {
+    max-width: 85%;
+  }*/
+
+  .top-banner {
+    display: none;
+  }
+}
+
 body {
   padding: 50px;
   font-size: 16px;
