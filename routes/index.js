@@ -30,7 +30,7 @@ router.get("/about", function(req, res, next) {
       traits: ['Creative extraordinaire', 'Scholar of game design', 'Likes weird things']
     },
     {
-      name: 'Carlos Catalán',
+      name: 'Carlos Jambrina',
       img: '/images/crljmb.png', img_alt: '/images/crljmb-alt.png',
       social: '<a href="https://twitter.com/crljmb">@crljmb</a>',
       traits: ['Illustrateur magnificient', 'Technically wonderful', 'Eats really healthy']

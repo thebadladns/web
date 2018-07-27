@@ -79,13 +79,13 @@ var database = {
             year: "From 2011",
             type: "art collective",
             short: "Freeform intercontinental art collective",
-            about: ["The Badladns is an art collective established in 2011 by Carlos Catalán and Rafa de la Hoz.",
+            about: ["The Badladns is an art collective established in 2011 by Carlos Jambrina and Rafa de la Hoz.",
                     "It's unmanaged, unorganized, has no funding, and welcomes any kind of (reasonable) form of expression.",
                     "Badladners are free to work in projects on their own, or in collaboration with other creative people. In fact, attracting talent to the Badladns is part of our core objectives.",
                     "The Badladns was originally founded with the objective of developing interesting interactive experiences disguised as videogames. We both understand that videogames (and generally interactive media experiences) are becoming part of humankind narrative, and wan't to take part in that.",
                     "Don't hesitate to contact us, we will probably love working in something awesome together."],
             credits: {
-                "The original badladners": "Carlos Catalán & Rafa de la Hoz",
+                "The original badladners": "Carlos Jambrina & Rafa de la Hoz",
                 // "Friends of the Badladns": "This could be you!"
             },
             status: "established"
