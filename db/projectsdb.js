@@ -15,7 +15,7 @@ var database = {
                 "Mario’s Picross, Jupiter-Ace-Nintendo, 1995", 
                 "Super Mario World, Nintendo, 1990"
             ],
-            status: "almost there"
+            status: "released"
         },
         {
             _class: "project",
