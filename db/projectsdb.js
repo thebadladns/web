@@ -42,7 +42,8 @@ var database = {
                 "Magical Drop, Data East, 1995", 
                 "PICO-8 Fantasy Console, Lexaloffle, 20XX", 
                 "Mario’s Picross, Jupiter-Ace-Nintendo, 1995", 
-                "Super Mario World, Nintendo, 1990"
+                "Super Mario World, Nintendo, 1990",
+                "CATBOMB, The Badladns, 2014"
             ],
             status: "released"
         },
