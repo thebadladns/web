@@ -2,6 +2,35 @@ var database = {
     _list: [
         {
             _class: "project",
+            id: "spaceoverlords",
+            title: "SPACE OVERLORDS",
+            year: "2018",
+            type: "videogame",
+            short: "Obscure arcade puzzle about slavery and ecology. Wait wha-",
+            data: {
+                type: "Videogame",
+                genre: "Arcade Puzzle",
+                platform: "Mobile",
+                year: "2018"
+            },
+            about: ["SPACE OVERLORDS is a work-in-progress project about ecology, slavery, and cute arcade puzzle action.",
+                    "Join the SPACE OVERLORDS on their quest to clean former planets that are now ecological wastelands.",
+                    "Be part of the enslaved cleaning workforce, work to reach your designated quota, and discover new things about the planet you are cleaning and the SPACE OVERLORDS race.",
+                    "Features two exciting game modes to spend your captivity days: PROCESS and REFINE",
+                    "SPACE OVERLORDS is a (dark) love letter to the arcade puzzle genre.",
+                    "It was created on the second half of 2018"],
+            getit: "SPACE OVERLORDS is not finished yet! (If you want to try it, or help with the testing, try sending us an email)",
+            ludography: [
+                "Nontan to Issho: Kuru Kuru Puzzle (ノンタンといっしょ くるくるパズル), Game Freak, 1994",
+                "SOAP ALLEY, the Badladns, 2018"
+            ],
+            credits: {
+                "Concept, Design, Graphics, Coding": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
+            },
+            status: "in progress"
+        },
+        {
+            _class: "project",
             id: "soapalley",
             title: "SOAP ALLEY",
             year: "2015-2018",
