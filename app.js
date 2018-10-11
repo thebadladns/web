@@ -43,5 +43,6 @@ app.use(function(err, req, res, next) {
 });
 
 app.use(subdomain('the', indexRouter));
+app.use(subdomain('api', apiRouter));
 
 module.exports = app;

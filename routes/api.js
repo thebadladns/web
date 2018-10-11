@@ -23,7 +23,7 @@ router.get('/spaceoverlords/overview', function(req, res, next) {
         // Data in form of JSON entries per line
         var output = "";
 
-        output += "start time\tend time\tduration\tscore\n";
+        output += "start time\tend time\tmode\tintensity\tduration\tscore\titems\tcycle\tfallspeed\n";
 
         var lines = ("" + data).split("\n");
         for (var i = 0; i < lines.length; i++)
@@ -32,7 +32,16 @@ router.get('/spaceoverlords/overview', function(req, res, next) {
             {
                 var obj = JSON.parse(lines[i]);
 
-                output += new Date(obj.startTime) + "\t" + new Date(obj.endTime) + "\t" + ((obj.endTime - obj.startTime) / 1000) + "\t" + obj.score + "\n";
+                output +=   tools.formatDate(obj.startTime) + "\t" +  
+                            tools.formatDate(obj.endTime) + "\t" + 
+                            (obj.mode == 0 ? "P" : "R") + "\t" +
+                            obj.intensity + "\t" + 
+                            ((obj.endTime - obj.startTime) / 1000) + "\t" + 
+                            obj.score + "\t" + 
+                            obj.items + "\t" + 
+                            obj.cycle + "\t" + 
+                            obj.fallSpeed + "\t" +
+                            "\n";
             }
         }
 
@@ -40,5 +49,15 @@ router.get('/spaceoverlords/overview', function(req, res, next) {
         res.send(output);
     });
 });
+
+const tools = {
+    formatDate: function formatDate(dateStr) {
+        if (dateStr) {
+            date = new Date(dateStr);
+            return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        }
+        return "<no date>";
+    }
+}
 
 module.exports = router;
