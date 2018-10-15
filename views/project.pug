@@ -54,7 +54,7 @@ block content
       if (project.about)
         h2 About
         each line in project.about
-          p= line
+          p!= line
       if (project.getit)
         h2 Get it!
         p!= project.getit

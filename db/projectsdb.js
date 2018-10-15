@@ -25,7 +25,8 @@ var database = {
                 "SOAP ALLEY, the Badladns, 2018"
             ],
             credits: {
-                "Concept, Design, Graphics, Coding": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
+                "Concept, Design, Graphics, Coding": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)",
+                "Additional design, illustration and support": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)"
             },
             status: "in progress"
         },
@@ -84,24 +85,58 @@ var database = {
             status: "in progress",
             visible: false
         },
-        /*{
-            _class: "project",
-            id: "dummy1",
-            title: "Dummy project",
-            year: "2017-2018",
-            type: "test",
-            short: "Just testing short text",
-            status: "in progress"
-        },
         {
             _class: "project",
-            id: "dummy2",
-            title: "Longer dummy project",
-            year: "2004",
-            type: "test-long",
-            short: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum vel sem ut pharetra. Aliquam malesuada tortor at finibus ultrices. Nulla a enim hendrerit nisl tristique lacinia quis at sapien. Sed vel ligula dictum, blandit ante non, egestas urna. Duis eget nisi mi. Nullam sit amet lorem lorem. Sed eleifend purus vitae urna eleifend, eget scelerisque magna scelerisque. Phasellus molestie aliquam ex, at laoreet odio efficitur egestas. Pellentesque sed ante sed nunc feugiat tempor sed nec enim. Cras quis hendrerit enim. Donec at blandit urna.",
-            status: "finished"
-        },*/
+            id: "axe",
+            title: "Axe Throwing Arcade",
+            year: "2013-2014",
+            type: "videogame",
+            short: "An unfished arcade about throwing an axe around dark dungeons",
+            data: {
+                type: "Videogame",
+                genre: "Arcade",
+                platform: "Desktop",
+                year: "2013-2014"
+            },
+            about: ["Axe Throwing Arcade (AXE) is an action oriented platformer with unforgiving and fast-paced solo or two player cooperative gameplay. Being a coin-operated machine, coin gathering will be a key part of the game, adding strategic thinking to the mix.",
+            "It was in active development between 2013 and 2014, written in C# leveraging Badladns' own <a href='https://the.badladns.com/projects/banana-engine'>Banana Engine</a>",
+            "It was the first proper game project in the badladns."],
+            getit: "AXE is currently on hold, development was halted after making treasure chests bigger (honest!). It may return in some form, somehow, in the future.",
+            ludography: [
+                "Bubble Bobble, Taito, 1986",
+                "Snow Bros, Toaplan, 1990",
+                "Tumblepop, Data East, 1991",
+                "Dark Souls, From Software, 2011"
+            ],
+            credits: {
+                "Concept, Design, Graphics, Coding": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>) & Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
+            },
+            status: "on hold"
+        },
+        {
+            _class: "engine",
+            id: "banana-engine",
+            title: "Banana Engine",
+            year: "2012-2014",
+            type: "game engine",
+            short: "XNA based easy prototyping and quick development game engine",
+            status: "not even close",
+            about: [
+                "Banana Engine is an initiative to build the ultimate game engine that badladners will use to develop ground breaking interactive experiences.",
+                "It has the quintessential set of game engine objectives:",
+                "◍ Manage the life cycle of the small virtual tennants of a game world,",
+                "◍ Allow those tennants to express themselves on screen or audio systems of human beings,",
+                "◍ Provide facilities for human beings to interact with these game worlds,",
+                "◍ All while trying to make the game developer's life easier.",
+                "Of course it works <span class='secret'>-just barely</span>",
+                "It is written in C# on top of XNA to add very simple game state based entity management capabilities, and has been used in at least one <span class='secret'>unfinished</span> badladns project.",
+                "We had fun doing this, but keep in mind that it may not actually be useful to anybody, anyhow, anywhere, ever."
+            ],
+            getit: "You can find the full engine codebase in Github <a href='https://github.com/thebadladns/banana-engine'>here</a>",
+            credits: {
+                "Design + Coding": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>) & Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
+            },
+        },
         {
             _class: "project",
             id: "thebadladns",
