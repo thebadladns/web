@@ -101,7 +101,7 @@ var database = {
             about: ["Axe Throwing Arcade (AXE) is an action oriented platformer with unforgiving and fast-paced solo or two player cooperative gameplay. Being a coin-operated machine, coin gathering will be a key part of the game, adding strategic thinking to the mix.",
             "It was in active development between 2013 and 2014, written in C# leveraging Badladns' own <a href='https://the.badladns.com/projects/banana-engine'>Banana Engine</a>",
             "It was the first proper game project in the badladns."],
-            getit: "AXE is currently on hold, development was halted after making treasure chests bigger <a href='https://github.com/thebadladns/AXE'>(honest!)</a>. It may return in some form, somehow, in the future.",
+            getit: "AXE is currently on hold, development was halted after making treasure chests brighter <a href='https://github.com/thebadladns/AXE'>(honest!)</a>. It may return in some form, somehow, in the future.",
             ludography: [
                 "Bubble Bobble, Taito, 1986",
                 "Snow Bros, Toaplan, 1990",
