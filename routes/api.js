@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 /* SPACE OVERLORDS REPORT API */
 router.post('/spaceoverlords/report', function(req, res, next) {
     var sessionObj = JSON.parse(req.body.session);
+    sessionObj.uuid = req.body.id;
     spaceOverlordsApiController.store(sessionObj);
 
     res.setHeader('Content-Type', 'application/json');
