@@ -33,7 +33,7 @@ var controller = {
     },
 
     all: function all(callback) {
-        fs.readFile(controller.dbfile, function(err, data) {
+        fs.readFile(controller.dbpath + "/" + controller.dbfile, function(err, data) {
             if (err) throw err;
             if (callback)
                 callback(data);
