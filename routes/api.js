@@ -19,6 +19,16 @@ router.post('/spaceoverlords/report', function(req, res, next) {
     res.send();
 });
 
+router.post('/spaceoverlords/log', function(req, res, next) {
+    var uuid = req.body.id;
+    var logString = req.body.contents;
+
+    spaceOverlordsApiController.log(uuid, logString);
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send();
+});
+
 router.get('/spaceoverlords/overview', function(req, res, next) {
     spaceOverlordsApiController.all(function(data) {
         // Data in form of JSON entries per line

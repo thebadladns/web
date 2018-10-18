@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use(subdomain('the', indexRouter));
-app.use(subdomain('api', apiRouter));
+// app.use(subdomain('the', indexRouter));
+// app.use(subdomain('api', apiRouter));
 
 module.exports = app;
