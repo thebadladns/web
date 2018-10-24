@@ -61,6 +61,16 @@ router.get('/spaceoverlords/overview', function(req, res, next) {
     });
 });
 
+router.get('/spaceoverlords/logs', function(req, res, next) {
+    spaceOverlordsApiController.generateLogsPackage(function(filename) {
+        res.download(filename, function(err) {
+            spaceOverlordsApiController.deleteLogsPackage(filename);
+            if (err)
+                throw err;
+        });
+    });
+});
+
 const tools = {
     formatDate: function formatDate(dateStr) {
         if (dateStr) {

@@ -1,6 +1,7 @@
 
 const fs = require('fs');
 const mkdirp = require('mkdirp');
+const archiver = require('archiver');
 
 var controller = {
     dbfile: 'so-api.db',
@@ -37,6 +38,36 @@ var controller = {
             if (err) throw err;
             if (callback)
                 callback(data);
+        });
+    },
+
+    generateLogsPackage: function generateLogsPackage(callback) {
+        var now = new Date();
+        var zipname = "logs-" + now.getTime() + ".zip";
+        var output = fs.createWriteStream(zipname);
+        var archive = archiver('zip');
+
+        output.on('close', function() {
+            callback(zipname);
+        });
+
+        archive.on('error', function(err) {
+            throw err;
+        });
+
+        archive.pipe(output);
+        var dirs = fs.readdirSync(controller.logpath);
+        for (var i = 0; i < dirs.length; i++) {
+            archive.directory(controller.logpath + "/" + dirs[i], dirs[i]);
+        }
+
+        archive.finalize();
+    },
+
+    deleteLogsPackage: function deleteLogsPackage(filename) {
+        fs.unlink(filename, function(err) {
+            if (err)
+                throw err;
         });
     }
 };
