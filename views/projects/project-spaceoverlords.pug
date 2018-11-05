@@ -1,0 +1,103 @@
+extends ../layout
+
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/projects.css')
+
+block content
+  div(class="main")
+    div(class="header")
+      div(style="margin-top: 20px")
+        a(href="/projects") < BACK
+      h1= project.title
+      p A badladns project directed by Rafa de la Hoz
+      div(class="project-data")
+        div(class="left secret")
+          p
+            span Project type
+          p
+            span Genre
+          p
+            span Platform
+          p
+            span Year
+        div(class="right")
+          p
+            span Videogame
+          p
+            span Arcade, Puzzle
+          p
+            span Android 
+            span(class="secret") iOS soon?
+          p
+            span 2018
+    div(class="separator")
+    div(class="separator")
+    if (images && images.length > 0)
+      div(class="images")
+        ul(class="images")
+          each image in images
+            a(href= image)
+              li
+                img(src= image)
+      div(class="separator")
+    div(class="content")
+      h2 About
+      
+      p SPACE OVERLORDS is a dark love letter to the arcade puzzle genre.
+      div(style='background: blue; color: white; padding-left: 1em;')
+        br
+        p(style="text-align: right; padding-right: 1em;") PLAY ▶
+        p You have just been enslaved by the SPACE OVERLORDS
+        p The SPACE OVERLORDS are on a quest to clean former planets that are now ecological wastelands.
+        p Be part of their enslaved cleaning workforce, work to reach your designated quota, and discover new things about the planet you are cleaning and the SPACE OVERLORDS species.
+        p Features two exciting work modes to spend your captivity days:
+        ul
+          li PROCESS an endless amount of trash, mutants and remnants of a long lost species
+          li REFINE special materials to extract resources cycle after cycle
+        p Enjoy your lonely labor on a variety derelict environments, with mad hi-tech beats by our secret slave composer, or just the mechanical soundtrack of heavy machinery.
+        p Work hard! Rumor has it that slaves that reach their production quota get a special reward!
+        p Our kind OVERLORDS promise no ads, wait times, or other evil artifacts that may interrupt your work.
+        p(style="text-align: right; padding-right: 1em;") STOP ▉
+        br
+
+      h2 Hey!
+
+      p Slavery and any kind of forced labor is an awful crime that should never have been committed, and should never happen again. So is extreme pollution and ecological unawareness. 
+      p SPACE OVERLORS is a rebellion against such things.
+
+      h2 Get it!
+      h3 The game
+      p You can download SPACE OVERLORDS for Android for free on 
+        a(href="https://play.google.com/store/apps/details?id=badladns.the.spaceoverlords") Google Play Store
+      
+      h3 Companion story book
+      p These stories explore the game universe and themes
+      a(href="#")
+        span(class="secret") Not yet available        
+
+      if (project.ludography)
+        h2 Ludography
+        each entry in project.ludography
+          p= "◍ " + entry
+
+      div(class="separator")
+
+      h3 Credits
+      h4 Concept, design, graphics, coding, sound
+      p Rafa de la Hoz (
+        a(href="https://twitter.com/thegraffo") @thegraffo
+        span )
+      h4 Additional design, code and support
+      p Carlos Jambrina (
+        a(href="https://twitter.com/crljmb") @crljmb
+        span )
+      h4 Music
+      p ██████████████ 
+        span(class="secret") (Redacted)
+      h4 Testing and support
+      p emechán
+      p evt1905
+      p pferv
+      p rogberth
+    div(class="footer")
+      p Product of the badladns, 2018

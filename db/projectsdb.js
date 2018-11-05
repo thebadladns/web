@@ -13,6 +13,7 @@ var database = {
                 platform: "Mobile",
                 year: "2018"
             },
+            template: "projects/project-spaceoverlords",
             about: ["SPACE OVERLORDS is a work-in-progress project about ecology, slavery, and cute arcade puzzle action.",
                     "Join the SPACE OVERLORDS on their quest to clean former planets that are now ecological wastelands.",
                     "Be part of the enslaved cleaning workforce, work to reach your designated quota, and discover new things about the planet you are cleaning and the SPACE OVERLORDS race.",
