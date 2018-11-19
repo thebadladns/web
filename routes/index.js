@@ -42,7 +42,7 @@ router.get("/about", function(req, res, next) {
     else if (rand < 0.66) return 0;
     else return 1;
   });
-  res.render('about', {cards: cards});
+  res.render('about', {title: "About the Badladns", cards: cards});
 });
 
 module.exports = router;
