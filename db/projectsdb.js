@@ -29,7 +29,7 @@ var database = {
                 "Concept, Design, Graphics, Coding": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)",
                 "Additional design, illustration and support": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)"
             },
-            status: "in progress"
+            status: "released"
         },
         {
             _class: "project",
