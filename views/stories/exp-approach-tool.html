@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!-- saved from url=(0137)https://trello-attachments.s3.amazonaws.com/5183774829c9527251002658/5c5ba1c33aa44a5265da54e8/e762986488d5944ef2ebfffe6816ff23/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Exponential approach tool</title>
+  <style media="screen">
+    .story-body {
+      font-family: sans-serif;
+    }
+
+    .story-body h1 {
+      padding-left: 30px;
+    }
+
+    .description {
+      margin-left: 30px;
+      margin-right: 50px;
+      border: 1px solid;
+      padding: 0 20px;
+      box-shadow: 0px 0px 10px #ccc;
+      border-radius: 3px;
+    }
+
+    .chart-and-settings {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .settings {
+      display: flex;
+      flex-direction: column;
+      margin-right: 54px;
+      margin-left: 24px;
+    }
+
+    .setting {
+      display: flex;
+      line-height: 2;
+      align-items: center;
+      padding: 0 6px;
+      border-radius: 3px;
+    }
+
+    .setting:hover {
+      background: #eee;
+    }
+
+    .equation {
+      display: block;
+      padding: 10px 30px;
+    }
+
+    .equation-green {
+      font-family: monospace;
+      color: #038532;
+    }
+
+    .equation-red {
+      font-family: monospace;
+      color: #FF3F6F;
+    }
+
+    .setting-title {
+      min-width: 160px;
+    }
+
+    input[type="range"] {
+      flex-grow: 1;
+    }
+
+    input[type="number"],
+    input[type="select"] {
+      min-width: 70px;
+      height: 16px;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .story-body .footer {
+      border: 0px white;
+      font-size: 10px;
+      text-align: right;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<div class="story-body">
+  <h1>Exponential approaches</h1>
+  <div class="description">
+    <p>Rough tool to map equations of the form <span class="equation equation-green">value<sub>n</sub> = value<sub>n-1</sub> + (target - value<sub>n-1</sub>) * <i>expFactor</i><br></span> which depend on the number of iterations, to ones that
+    consume time deltas and behave a bit better with varying framerates <span class="equation equation-red">value<sub>n</sub> = target - (value<sub>n-1</sub> - target) / e<sup>dt / <i>timeHorizon</i></sup></span></p>
+    <p>[<a href="https://trello-attachments.s3.amazonaws.com/5183774829c9527251002658/5c5ba1c33aa44a5265da54e8/e762986488d5944ef2ebfffe6816ff23/index.html#">if a supporting blogpost were to exist, a link to it would be here</a>]</p>
+    <p>Given <i><span class="equation-green">expFactor</span></i> and a framerate, you can adjust <i><span class="equation-red">timeHorizon</span></i> to make the functions match (for example, <i><span class="equation-red">timeHorizon</span></i> =
+    0.1485 matches <i><span class="equation-green">expFactor</span></i> = 0.2 with 30 fps). Support for different implementations of e<sup>x</sup> is provided, though in practice a 3rd order Taylor series works well enough.</p>
+  </div>
+  <div class="chart-and-settings">
+    <div class="chart">
+      <canvas height="392" id="xy-graph" width="1360">
+        HTML5 canvas not supported in this browser.
+      </canvas>
+    </div>
+    <div class="settings">
+      <div class="setting">
+        <span class="setting-title">zoom</span> <input id="text_scalex" onchange="updatetext_scalex(this); draw();" type="number" value="1.0" max="10" min="0.0001" step="0.0001"> <input id="slider_scalex" oninput="updateslider_scalex(this); draw();" type="range" max="100000" min="1">
+      </div>
+      <div class="setting">
+        <span class="setting-title equation-green"><i>expFactor</i></span> <input id="text_smplf" onchange="updatetext_smplf(this); draw();" type="number" value="0.5" min="0.0001" max="1" step="0.0001"> <input id="slider_smplf" oninput="updateslider_smplf(this); draw();" type="range" max="10000" min="1">
+      </div>
+      <div class="setting">
+        <span class="setting-title equation-red"><i>timeHorizon</i></span> <input id="text_expnth" onchange="updatetext_expnth(this); draw();" type="number" value="0.14" max="5" min="0.0001" step="0.0001"> <input id="slider_expnth" oninput="updateslider_expnth(this); draw();" type="range" max="50000" min="1">
+      </div>
+      <div class="setting">
+        <span class="setting-title">framerate</span> <input id="text_fps" max="90" min="1" onchange="updatetext_fps(this); draw();" step="1" type="number" value="30"> <input id="slider_fps" max="90" min="1" oninput="updateslider_fps(this); draw();" type="range">
+      </div>
+      <div class="setting">
+        <span class="setting-title">exponential function</span> <select id="combo_expnf" onchange="draw();">
+          <option value="0">
+            Taylor 2nd degree
+          </option>
+          <option selected="" value="1">
+            Taylor 3rd degree
+          </option>
+          <option value="2">
+            Taylor 4th degree
+          </option>
+          <option value="3">
+            Math.exp
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="footer">
+      ui help from <a href="https://github.com/sheniff">Sergio❤️</a>
+    </div>
+  </div>
+  <script>
+      const sliderscale = 10000;
+      var scalex;
+
+      function init() {
+        const scalex_max = 10.0;
+        var slider_scalex = document.getElementById('slider_scalex');
+        slider_scalex.max = sliderscale * scalex_max;
+        slider_scalex.min = 1;
+        var text_scalex = document.getElementById('text_scalex');
+        text_scalex.max = scalex_max;
+        text_scalex.min = 1 / sliderscale;
+        text_scalex.step = 1 / sliderscale;
+        updatetext_scalex(text_scalex);
+
+        var slider_smplf = document.getElementById('slider_smplf');
+        slider_smplf.max = sliderscale;
+        slider_smplf.min = 1;
+        var text_smplf = document.getElementById('text_smplf');
+        text_smplf.min = 1 / sliderscale;
+        text_smplf.max = 1.0;
+        text_smplf.step = 1 / sliderscale;
+        updatetext_smplf(text_smplf);
+
+        const expnth_max = 5.0;
+        var slider_expnth = document.getElementById('slider_expnth');
+        slider_expnth.max = sliderscale * expnth_max;
+        slider_expnth.min = 1;
+        var text_expnth = document.getElementById('text_expnth');
+        text_expnth.max = expnth_max;
+        text_expnth.min = 1 / sliderscale;
+        text_expnth.step = 1 / sliderscale;
+        updatetext_expnth(text_expnth);
+
+        var text_fps = document.getElementById('text_fps');
+        updatetext_fps(text_fps);
+
+        draw();
+      }
+
+      function updateslider_scalex(slider) {
+        document.getElementById('text_scalex').value = slider.value / sliderscale;
+      }
+
+      function updatetext_scalex(text) {
+        document.getElementById('slider_scalex').value = text.value * sliderscale;
+      }
+
+      function updateslider_smplf(slider) {
+        document.getElementById('text_smplf').value = slider.value / sliderscale;
+      }
+
+      function updatetext_smplf(text) {
+        document.getElementById('slider_smplf').value = text.value * sliderscale;
+      }
+
+      function updateslider_expnth(slider) {
+        document.getElementById('text_expnth').value = slider.value / sliderscale;
+      }
+
+      function updatetext_expnth(text) {
+        document.getElementById('slider_expnth').value = text.value * sliderscale;
+      }
+
+      function updateslider_fps(slider) {
+        document.getElementById('text_fps').value = slider.value;
+      }
+
+      function updatetext_fps(text) {
+        document.getElementById('slider_fps').value = text.value;
+      }
+
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth - 50;
+        canvas.height = Math.min(window.innerHeight * 0.5, canvas.width);
+        draw();
+      }
+
+      var canvas = document.getElementById('xy-graph');
+      var ctx = null;
+      var xc_padding = 30;
+      var yc_padding = 30;
+
+      window.addEventListener('resize', resizeCanvas, false);
+      resizeCanvas();
+
+
+      // pixels are (0,0) at top left, in c space (0,0) is bottom left
+      function vp_w() { return 1 / scalex; }
+      function vp_h() { return 1; }
+      function yc_t() { return yc_padding; }
+      function yc_b() { return canvas.height - yc_padding; }
+      function xc_l() { return xc_padding; }
+      function xc_r() { return canvas.width - xc_padding; }
+      function xc(x) { return xc_padding + (canvas.width - 2 * xc_padding) * x / vp_w(); }
+      function yc(y) { return canvas.height - yc_padding - (canvas.height - 2 * yc_padding) * y / vp_h(); }
+
+
+      function draw() {
+
+        if (canvas.getContext) {
+          ctx = canvas.getContext('2d');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          scalex = parseFloat(document.getElementById('text_scalex').value);
+
+          var dt = 1 / parseFloat(document.getElementById('text_fps').value);
+
+          ctx.strokeStyle = "#03853288";
+          var smpl_f = parseFloat(document.getElementById('text_smplf').value);
+          render_smpl(smpl_f, dt);
+
+          ctx.strokeStyle = "#ff3f6f88";
+          var expn_timehorizon = parseFloat(document.getElementById('text_expnth').value);
+          var expn_type = parseInt(document.getElementById('combo_expnf').value);
+          render_expn(expn_type, expn_timehorizon, dt);
+
+          ctx.strokeStyle = "#000000";
+          ctx.font = "15px Arial";
+          render_axes();
+        }
+      }
+
+      // DrawAxes draws the X ad Y axes, with tick marks.
+      function render_axes() {
+        ctx.save();
+        ctx.lineWidth = 2;
+
+        // y axis
+        {
+          ctx.beginPath();
+          ctx.moveTo(xc_l(),yc_b());
+          ctx.lineTo(xc_l(),yc_t());
+          ctx.stroke();
+        }
+
+        // y axis labels
+        {
+          ctx.fillText(vp_h(), xc_l() - 15, yc_t() + 10);
+          ctx.fillText("0", xc_l() - 15, yc_b());
+        }
+
+        // x axis
+        {
+          ctx.beginPath();
+          ctx.moveTo(xc_l(),yc_b());
+          ctx.lineTo(xc_r(),yc_b());
+          ctx.stroke();
+        }
+
+        // x axis labels
+        {
+          ctx.fillText("time (s)", xc_l(), canvas.height - 10);
+
+          const labelxoffset = -30;
+          const labelyoffset = -20;
+          const mark_xoffset = 0;
+          const mark_h = 10;
+          ctx.beginPath();
+          ctx.moveTo(xc(vp_w() * 0.5) + mark_xoffset,yc_b() - mark_h);
+          ctx.lineTo(xc(vp_w() * 0.5) + mark_xoffset,yc_b() + mark_h);
+          ctx.stroke();
+          ctx.fillText((vp_w() * 0.5).toFixed(2), xc(vp_w() *  0.5) + labelxoffset, yc_b() + labelyoffset);
+
+          ctx.beginPath();
+          ctx.moveTo(xc_r() + mark_xoffset,yc_b() - mark_h);
+          ctx.lineTo(xc_r() + mark_xoffset,yc_b() + mark_h);
+          ctx.stroke();
+          ctx.fillText(vp_w().toFixed(2), xc_r() + labelxoffset, yc_b() + labelyoffset);
+        }
+
+        ctx.restore();
+      }
+
+      function exp_taylor2(x) { return 1.0 + x + x * x * 0.5; }
+      function exp_taylor3(x) { return 1.0 + x + x * x * 0.5 + x * x * x / 6.0; }
+      function exp_taylor4(x) { return 1.0 + x + x * x * 0.5 + x * x * x / 6.0 + x * x * x * x / 24.0; }
+
+      function render_smpl(f, dt) {
+        var x = 0;
+        var y = 0.0;
+        var t = 1.0;
+        ctx.beginPath();
+        ctx.moveTo(xc(x), yc(y));
+        for (x = dt; xc(x) < xc_r(); x += dt) {
+          y = y + (t - y) * f;
+          ctx.lineTo(xc(x), yc(y));
+        }
+        ctx.stroke();
+      }
+
+      function render_expn(type, timehorizon, dt) {
+        var exp = Math.exp;
+        if (type == 0) {
+          exp = exp_taylor2;
+        } else if (type == 1) {
+          exp = exp_taylor3;
+        } else if (type == 2) {
+          exp = exp_taylor4;
+        }
+        var x = 0;
+        var y = 0.0;
+        var t = 1.0;
+        ctx.beginPath();
+        ctx.moveTo(xc(x), yc(y));
+        for (x = dt; xc(x) < xc_r(); x += dt) {
+          y = t + (y - t) / exp(dt / timehorizon);
+          ctx.lineTo(xc(x), yc(y));
+        }
+        ctx.stroke();
+      }
+
+      init();
+
+  </script>
+</div>

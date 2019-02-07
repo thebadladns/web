@@ -1,0 +1,23 @@
+extends layout
+
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/projects.css')
+
+block content
+  div(class="main")
+    div(class="header")
+      h1 Stories from the Badladns
+      p Let us tell you the stories of our people, including tech related magic and opinionated design rants.
+    div(class="content")
+      each story in stories
+        if (story.visible == null || story.visible)
+          - var pid = story.id;
+          a(href="/stories/"+pid)
+            div(id="story-" + pid class="project-card")
+              div
+                span(id="title-" + pid class="project-title")= story.title 
+                span(class="secret")  - 
+                span(id="type-" + pid class="secret")= story.type
+                // div(id="status-" + pid class="status status-" + project.status)= project.status
+              div(id="year-" + pid)= story.year
+              div(id="short-" + pid)= story.abstract

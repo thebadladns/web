@@ -15,6 +15,13 @@ body {
   font-family: 'Anonymous Pro', 'Courier new', monospace;
 }
 
+.footer {
+  border-top: 1px dashed black;
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: right;
+}
+
 a {
   color: #00B7FF;
 }

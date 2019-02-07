@@ -1,0 +1,21 @@
+h4 {
+    text-decoration: underline;
+}
+
+.story-body {
+    font-family: sans-serif;
+}
+
+.highlight {
+    text-decoration: underline;
+}
+
+.separator {
+    border-bottom: 1px dashed black;
+}
+
+.small-secret {
+    text-align: right;
+    font-size: 14px;
+    color: gray;
+}

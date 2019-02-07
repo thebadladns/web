@@ -1,0 +1,17 @@
+extends layout
+
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/stories.css')
+
+block content
+  div(class="main")
+    div(class="header")
+      div(style="margin-top: 20px")
+        a(href="/stories") < BACK
+      div(class="story-body")
+        h1= story.title
+        p= story.short
+        div(class="separator")
+        div(class="content")
+        each parragraph in story.body
+          p!= parragraph
