@@ -17,6 +17,8 @@
 
     color: black;
     text-decoration: none;
+
+    box-shadow: 20px 20px 0 0px black;
 }
 
 .project-card:hover, .project-card:hover .status {
@@ -37,6 +39,7 @@
 }
 
 .project-title {
+    font-size: 17px;
     text-decoration: underline;
 }
 

@@ -8,10 +8,13 @@ block content
     div(class="header")
       div(style="margin-top: 20px")
         a(href="/stories") < BACK
+      h1= story.title
+      h3 As told by #{story.author} on #{story.date}
+      div(class="separator")
+      // if (story.abstract)
+      //   p= story.abstract
+      //   div(class="separator")
       div(class="story-body")
-        h1= story.title
-        p= story.short
-        div(class="separator")
         div(class="content")
         each parragraph in story.body
           p!= parragraph

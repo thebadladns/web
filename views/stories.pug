@@ -19,5 +19,5 @@ block content
                 span(class="secret")  - 
                 span(id="type-" + pid class="secret")= story.type
                 // div(id="status-" + pid class="status status-" + project.status)= project.status
-              div(id="year-" + pid)= story.year
+              div(id="date-" + pid) Told by #{story.author} on #{story.date}
               div(id="short-" + pid)= story.abstract
