@@ -1,14 +1,14 @@
 extends ../layout
 
 block header-custom
-  link(rel='stylesheet', href='/stylesheets/projects.css')
+  link(rel='stylesheet', href='/stylesheets/stories.css')
 
 block content
   div(class="main")
     div(class="header")
       div(style="margin-top: 20px")
         a(href="/stories") < BACK
-      h1 Exponential approaches
+      h1 Exponential approach tool
       h3 As told by #{story.author} on #{story.date}
       div(class="separator")
       include exp-approach-tool.html

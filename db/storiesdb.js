@@ -2,12 +2,23 @@ var database = {
     _list: [
         {
             _class: "story",
+            id: "exp-approach-info",
+            title: "Info on exponential approaches",
+            type: "Tech write-up",
+            author: "Carlos Jambrina",
+            date: "19/02/2018",
+            visible: true,
+            abstract: "Brain dump of what little I know about them",
+            template: "stories/exp-approach-info"
+        },
+        {
+            _class: "story",
             id: "exp-approach",
-            title: "Exponential approaches",
-            type: "Tech note",
+            title: "Exponential approach tool",
+            type: "Tech tool",
             author: "Carlos Jambrina",
             date: "06/02/2018",
-            abstract: "Exponential approaches are good for your maths",
+            abstract: "I swear they are useful and maybe this helps use them",
             template: "stories/exp-approach-tool"
         },
         {

@@ -1,0 +1,93 @@
+extends ../layout
+
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/stories.css')
+
+block content
+  div(class="main")
+    div(class="header")
+      div(style="margin-top: 20px")
+        a(href="/stories") < BACK
+    
+    h1 Info on exponential approaches
+    h3 As told by #{story.author} on #{story.date}
+    div(class="separator")
+      
+    div(class="content")
+
+      p A common pattern in gamedev is to interpolate a value towards a given target over time, with an update speed that depends on the difference between the two values:
+      p
+        code current = current + (target - current) * expFactor
+      p The result is actually quite snappy and smooth: the value covers large deltas quickly, then slows down for small adjustments. It's responsive to sudden changes, and prevents jittering at the same time.
+      p A sample update from 0 to 1 with expFactor = 0.25 would look like this:
+      p
+        img(src="/images/stories/exp-approach-info/start-exponential.png")
+      p There's a property of this method, however, that will likely lead to issues: the rate at which our value approaches the target depends on the number of times the equation gets called, and is independent of the actual amount of time passed. Calling this code 30 times a second will result in a different behavior than if your update rate is 60.
+      p Consider an entity that's constantly turning, and every update we approach the current direction to a value 90 degrees to the right, using this same equation. Different frame update rates will lead to different turn rates:
+      p
+        img(src="/images/stories/exp-approach-info/steering-slower-before.png")
+        span 
+        img(src="/images/stories/exp-approach-info/steering-normal-before.png") 
+        span 
+        img(src="/images/stories/exp-approach-info/steering-faster-before.png")
+
+      div(class="separator")
+
+      p There's a way around this though, if we consider exponential functions. Let's take a look at <sup>1</sup>&frasl;<sub>e<sup>kx</sup></sub>
+      p
+        img(src="/images/stories/exp-approach-info/exponential.png")
+      p For x = 0, the function returns 1, and by x ≈ 7 the value will pretty much be equal to zero.
+      p If we consider the x axis to be seconds, we can use k as a tunable factor to expand or contract the curve. Let's refer to k as <sup>1</sup>&frasl;<sub>timeHorizon</sub>. Larger timeHorizon values will lead to larger convergence times, and viceversa:
+      p
+        img(src="/images/stories/exp-approach-info/exponential-timehorizon-01.png") 
+        span 
+        img(src="/images/stories/exp-approach-info/exponential-timehorizon-02.png")
+      p Since x is seconds, we can pass in the time delta from our update, and we'll now have a time-dependent update curve. Note that <sup>1</sup>&frasl;<sub>e<sup>kx</sup></sub> goes from 1 to 0, which is why our delta goes from current to target:
+      p
+        code current = target + (current – target) / e<sup>(dt/timeHorizon)</sup>
+      p Playing around with values for timeHorizon, we can reach a shape similar to the one we started with:
+      p
+        img(src="/images/stories/exp-approach-info/result-exponential.png")
+      p So far we've been using just pure intuition, but we can actually proof that this equation represents the same curve we started with. This posts explains it very nicely:
+      p
+        a(href="https://gamedev.stackexchange.com/questions/80089/how-to-use-weighted-average-easing-correctly-with-variable-framerate/80121#80121") https://gamedev.stackexchange.com/questions/80089/how-to-use-weighted-average-easing-correctly-with-variable-framerate/80121#80121
+      p Some nice conclusions from this:
+      ul
+        li Our resulting function (let's call it expApproach) is time (not frame) dependent, and doesn't change its output when called at different frequencies: expApproach((expApproach(value, target, time1), target, time2) = expApproach(value, target, time1 + time2).
+        li Since our timedeltas will pressumably be small, we can approximate e via Taylor with a low number of terms, and the error won't be too significant.
+        li We now have an analytical way of mapping expFactor to timeHorizon.
+      p For the previous case of the entity that wanted to turn right, we can now see how the suggested equation solves our issues with varying time rates:
+      p
+        img(src="/images/stories/exp-approach-info/steering-slower-after.png")
+        span 
+        img(src="/images/stories/exp-approach-info/steering-normal-after.png") 
+        span 
+        img(src="/images/stories/exp-approach-info/steering-faster-after.png") 
+
+      div(class="separator")
+
+      p This is all great, but it's still not entirely trivial how to map existing behaviors using the initial function to the timeHorizon suggested here. I set up a tool to maybe help with that:
+      p
+        a(href="/stories/exp-approach") Exponential approach tool
+      p I'm hoping it's self explanatory, but just in case, here's how it looks when trying to replicate the curve we started with, with an expFactor of 0.25, tuned for a game that runs at 30 frames per second:
+      p
+        img(src="/images/stories/exp-approach-info/curves-tool-01.png")
+      p
+        img(src="/images/stories/exp-approach-info/curves-tool-02.png")
+      p We got a match with timeHorizon = 0.116!
+
+      div(class="separator")
+
+      p So, <big>TLDR</big>:
+      p Whenever you have issues using:
+      p
+        code current = current + (target - current) * expFactor
+      p consider using this instead:
+      p
+        code current = target + (current – target) / e<sup>(dt/timeHorizon)</sup>
+      p , which you can tune with the help of 
+        a(href="/stories/exp-approach") this tool
+        span .
+      p Hope this helped!
+
+
