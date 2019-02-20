@@ -2,7 +2,6 @@
 <!-- saved from url=(0137)https://trello-attachments.s3.amazonaws.com/5183774829c9527251002658/5c5ba1c33aa44a5265da54e8/e762986488d5944ef2ebfffe6816ff23/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-  <title>Exponential approach tool</title>
   <style media="screen">
     .story-body {
       font-family: sans-serif;
@@ -76,6 +75,11 @@
       text-align: center;
     }
 
+    button {
+      margin: auto;
+      width: 50%;
+    }    
+
     .story-body .footer {
       border: 0px white;
       font-size: 10px;
@@ -85,13 +89,14 @@
   </style>
 </head>
 <div class="story-body">
-  <h1>Exponential approaches</h1>
+  <p/>
   <div class="description">
     <p>Rough tool to map equations of the form <span class="equation equation-green">value<sub>n</sub> = value<sub>n-1</sub> + (target - value<sub>n-1</sub>) * <i>expFactor</i><br></span> which depend on the number of iterations, to ones that
     consume time deltas and behave a bit better with varying framerates <span class="equation equation-red">value<sub>n</sub> = target - (value<sub>n-1</sub> - target) / e<sup>dt / <i>timeHorizon</i></sup></span></p>
-    <p>[<a href="https://trello-attachments.s3.amazonaws.com/5183774829c9527251002658/5c5ba1c33aa44a5265da54e8/e762986488d5944ef2ebfffe6816ff23/index.html#">if a supporting blogpost were to exist, a link to it would be here</a>]</p>
+    <p>[<a href="/stories/exp-approach-info">here's a more detailed write-up on this</a>]</p>
     <p>Given <i><span class="equation-green">expFactor</span></i> and a framerate, you can adjust <i><span class="equation-red">timeHorizon</span></i> to make the functions match (for example, <i><span class="equation-red">timeHorizon</span></i> =
-    0.1485 matches <i><span class="equation-green">expFactor</span></i> = 0.2 with 30 fps). Support for different implementations of e<sup>x</sup> is provided, though in practice a 3rd order Taylor series works well enough.</p>
+    0.1494 matches <i><span class="equation-green">expFactor</span></i> = 0.2 with 30 fps). Support for different implementations of e<sup>x</sup> is provided, though in practice a 3rd order Taylor
+    series works well enough. The analytical solution only guarantees accurate results when using Math.exp.</p>
   </div>
   <div class="chart-and-settings">
     <div class="chart">
@@ -100,6 +105,10 @@
       </canvas>
     </div>
     <div class="settings">
+      <div class="setting">
+        <button id="button_analyticaltimehorizon"
+             onclick="updatebutton_analyticaltimehorizon(); draw();">Analytical time horizon</button>
+      </div>            
       <div class="setting">
         <span class="setting-title">zoom</span> <input id="text_scalex" onchange="updatetext_scalex(this); draw();" type="number" value="1.0" max="10" min="0.0001" step="0.0001"> <input id="slider_scalex" oninput="updateslider_scalex(this); draw();" type="range" max="100000" min="1">
       </div>
@@ -231,6 +240,13 @@
       function xc(x) { return xc_padding + (canvas.width - 2 * xc_padding) * x / vp_w(); }
       function yc(y) { return canvas.height - yc_padding - (canvas.height - 2 * yc_padding) * y / vp_h(); }
 
+      function updatebutton_analyticaltimehorizon() {
+          var dt = 1 / parseFloat(document.getElementById('text_fps').value);
+          var smpl_f = parseFloat(document.getElementById('text_smplf').value);
+          // see https://gamedev.stackexchange.com/questions/80089/how-to-use-weighted-average-easing-correctly-with-variable-framerate/80121#80121
+          var expn_timehorizon = expn_timehorizon = dt / Math.log(1/(1-smpl_f));
+          document.getElementById('text_expnth').value = expn_timehorizon;
+      }
 
       function draw() {
 
