@@ -42,7 +42,7 @@ block content
         img(src="/images/stories/exp-approach-info/exponential-timehorizon-01.png") 
         span 
         img(src="/images/stories/exp-approach-info/exponential-timehorizon-02.png")
-      p Since x is seconds, we can pass in the time delta from our update, and we'll now have a time-dependent update curve. Note that <sup>1</sup>&frasl;<sub>e<sup>kx</sup></sub> goes from 1 to 0, which is why our delta goes from current to target:
+      p Since x is seconds, we can pass in the time delta from our update, and we'll now have a time-dependent update curve. Note that <sup>1</sup>&frasl;<sub>e<sup>kx</sup></sub> goes from 1 to 0, which is why our delta goes from target to current:
       p
         code current = target + (current – target) / e<sup>(dt/timeHorizon)</sup>
       p Playing around with values for timeHorizon, we can reach a shape similar to the one we started with:
