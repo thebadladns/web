@@ -78,13 +78,25 @@ var database = {
         },
         {
             _class: "project",
-            id: "silentnight",
+            id: "asilentnight",
             title: "A Silent Night",
-            year: "2017-2018",
+            year: "2016-2017",
             type: "comic",
-            short: "Dark, mysterious, acrobatic. Go get 'em, girl",
-            status: "in progress",
-            visible: false
+            short: "Dark, mysterious, acrobatic. Go get 'em!",
+            data: {
+                type: "Comic",
+                platform: "Web, Print",
+                year: "2016-2017"
+            },
+            about: ["A Silent Night is an exploration of visual storytelling and martial arts coreography, presented as a vignette of a larger, untold, story.",
+                    "Originally planned as a two-part comic book, the project was eventually re-scoped into a single issue release as most ideas for a second chapter were further pushing it into an undesired glorification of violence.",
+                    "Part I was developed between the Summer of 2016 and early 2017."
+            ],
+            getit: "The pdf is available here <a href='/files/A Silent Night - web.pdf'>here</a>",
+            credits: {
+                "Concept, Art": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)"
+            },
+            status: "released"
         },
         {
             _class: "project",
