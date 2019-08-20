@@ -92,7 +92,7 @@ var database = {
                     "Originally planned as a two-part comic book, the project was eventually re-scoped into a single issue release as most ideas for a second chapter were further pushing it into an undesired glorification of violence.",
                     "Part I was developed between the Summer of 2016 and early 2017."
             ],
-            getit: "The pdf is available here <a href='/files/A Silent Night - web.pdf'>here</a>",
+            getit: "The pdf is available <a href='/files/A Silent Night - web.pdf'>here</a>",
             credits: {
                 "Concept, Art": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)"
             },
