@@ -2,6 +2,17 @@ var database = {
     _list: [
         {
             _class: "story",
+            id: "not-top",
+            title: "not top",
+            type: "Game design rambles",
+            author: "Carlos Jambrina",
+            date: "14/10/2019",
+            visible: true,
+            abstract: "Really 'what if JRPGs where more like Breath of the Wild'",
+            template: "stories/not-top"
+        },
+        {
+            _class: "story",
             id: "exp-approach-info",
             title: "Info on exponential approaches",
             type: "Tech write-up",

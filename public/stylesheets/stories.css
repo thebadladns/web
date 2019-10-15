@@ -19,3 +19,17 @@ h4 {
     font-size: 14px;
     color: gray;
 }
+
+.bw-table {
+    text-align: left;
+}
+
+.bw-table th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.bw-table thead {
+    background-color: black;
+    color: white;
+}
