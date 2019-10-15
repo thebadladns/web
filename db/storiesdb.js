@@ -17,7 +17,7 @@ var database = {
             title: "Info on exponential approaches",
             type: "Tech write-up",
             author: "Carlos Jambrina",
-            date: "19/02/2018",
+            date: "19/02/2019",
             visible: true,
             abstract: "Brain dump of what little I know about them",
             template: "stories/exp-approach-info"
@@ -28,7 +28,7 @@ var database = {
             title: "Exponential approach tool",
             type: "Tech tool",
             author: "Carlos Jambrina",
-            date: "06/02/2018",
+            date: "06/02/2019",
             abstract: "I swear they are useful and maybe this helps use them",
             template: "stories/exp-approach-tool"
         },
