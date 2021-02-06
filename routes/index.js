@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const fs = require('fs');
+const projectsController = require("../core/projects-controller.js");
 
 const gallery = {
   "0.jpg": "Logo draft, 2018",
@@ -15,10 +16,25 @@ const gallery = {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var list = fs.readdirSync("public/images/gallery");
-  var index = Math.floor(Math.random() * list.length);
-  var img = list[index];
-  res.render('index', { image: "/images/gallery/" + img, desc: gallery[img]});
+  
+  var project = projectsController.all();
+  var entry = project[Math.floor(Math.random() * project.length)];
+  var project_images = projectsController.getImages(entry.id);
+  var img, detail;
+  if (project_images.length > 0)
+  {
+    img = project_images[Math.floor(Math.random() * project_images.length)];
+    detail = "/projects/" + entry.id;
+  }
+  else
+  {
+    var list = fs.readdirSync("public/images/gallery");
+    var index = Math.floor(Math.random() * list.length);
+    img = "/images/gallery/" + list[index];
+    detail = '/projects/thebadladns';
+  }
+  
+  res.render('index', { image: img, desc: gallery[img], detail: detail});
 });
 
 router.get("/about", function(req, res, next) {
