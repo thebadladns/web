@@ -121,7 +121,9 @@ h4 {
     color: gray;
 }
 
-th.credit {
-    padding-right: 50px;
-    text-align: left;
+tr.credits {
+    width:20%;
+}
+td.credits {
+    padding-right: 20px;
 }
