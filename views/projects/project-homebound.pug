@@ -8,8 +8,7 @@ block content
     div(class="header")
       div(style="margin-top: 20px")
         a(href="/projects") < BACK
-      h1= project.title
-      p= project.short
+      h1(style="margin-bottom: 0px")= project.title
       if (project.data)
         div(class="project-data")
           div(class="left secret")

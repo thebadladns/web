@@ -126,4 +126,5 @@ tr.credits {
 }
 td.credits {
     padding-right: 20px;
+    vertical-align: top;
 }
