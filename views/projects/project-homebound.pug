@@ -1,0 +1,101 @@
+extends ../layout
+
+block header-custom
+  link(rel='stylesheet', href='/stylesheets/projects.css')
+
+block content
+  div(class="main")
+    div(class="header")
+      div(style="margin-top: 20px")
+        a(href="/projects") < BACK
+      h1= project.title
+      p= project.short
+      if (project.data)
+        div(class="project-data")
+          div(class="left secret")
+            if (project.data.type)
+              p
+                span Project type
+            if (project.data.genre)
+              p
+                span Genre
+            if (project.data.platform)
+              p
+                span Platform
+            if (project.data.year)
+              p
+                span Year
+          div(class="right")
+            if (project.data.type)
+              p
+                span= project.data.type
+            if (project.data.genre)
+              p
+                span= project.data.genre
+            if (project.data.platform)
+              p
+                span= project.data.platform
+            if (project.data.year)
+              p
+                span= project.data.year
+    div(class="separator")
+    if (project.getit)
+      h2 Get it!
+      p!= project.getit
+    div(class="separator")
+    if (pages && pages.length > 0)
+      div(class="images")
+        ul(class="images")
+          each page in pages
+            a(href= page)
+              li
+                img(src= page)
+    div(class="separator")
+    div(class="content")
+      if (project.long)
+        p!= project.long
+      if (project.about)
+        h2 About
+        each line in project.about
+          p!= line
+        div(class="separator")
+        h2 Some behind the scenes
+            div(class="images")
+                ul(class="images")
+                  each image in progress
+                    a(href= image)
+                      li
+                        img(src= image)
+      if (project.ludography)
+        h2 Ludography
+        each entry in project.ludography
+          p= "◍ " + entry
+      if (project.credits)
+        div(class="separator")
+        h2 Credits
+        each person, role in project.credits
+          h4= role
+          p!= person
+        h4 Proof-reading and overall support
+        table
+          tr
+            th(class="credit") Pablo
+            th(class="credit") Johanna
+            th(class="credit") Daniele
+            th(class="credit") Elena
+          tr
+            td(class="credit") Jarien
+            td(class="credit") Liz
+            td(class="credit") Ali
+            td(class="credit") Britt
+          tr
+            td(class="credit") Monica
+            td(class="credit") Dan
+            td(class="credit") Other Pablo
+            td(class="credit") Miguel
+          tr
+            td(class="credit") Joao
+            td(class="credit") Emanuela
+            td(class="credit") Sergio
+            td(class="credit") Ana
+            td(class="credit") and Half of Boston

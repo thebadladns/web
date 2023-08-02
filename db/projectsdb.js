@@ -6,20 +6,22 @@ var database = {
             title: "Homebound",
             year: "2021-2023",
             type: "comic",
-            short: "Can time travel make you think about the meaning of being part of a family?",
+            short: "A tale of astronauts, talking lizards and a lost baby",
             data: {
                 type: "Comic",
                 platform: "Print, Web",
                 year: "2021-2023"
             },
-            about: ["Follow the tale of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.",
+            template: "projects/project-homebound",
+            about: ["Follow the story of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.",
                     "Together, they embark on a road trip full of comedy, action and slice-of-life scenes across a cozy yet mysterious planet, on a journey to find the baby's home.",
                     "Page count: 250-ish",
                     "12 years and up"
             ],
             getit: "Soon on <a href='https://thebadladns.itch.io/homebound-wip'>itch.io</a>?",
             credits: {
-                "Concept, Art": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)"
+                "Concept, story, art, lettering, book formatting": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)",
+                "Editing, story consulting, support": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
             },
             status: "almost there"
         },
