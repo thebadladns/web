@@ -4,10 +4,10 @@ const fs = require('fs');
 
 const getImages = function(dataDir, publicDir) {
     try {
-        var files = fs.readdirSync(dataDir);
+        var files = fs.readdirSync(dataDir, { withFileTypes: true }).filter(dirent => !dirent.isDirectory());
         var images = [];
         for (var i in files) {
-            images.push(publicDir + '/' + files[i]);
+            images.push(publicDir + '/' + files[i].name);
         }
         return images;
     } catch (exception) {
@@ -22,8 +22,8 @@ var controller = {
         return database.get(projectId);
     },
     getPages: function() {
-        const directory = 'public/images/projects/homebound/pages';
-        const publicDirectory = '/images/projects/homebound/pages';
+        const directory = 'public/images/projects/homebound';
+        const publicDirectory = '/images/projects/homebound';
         return getImages(directory, publicDirectory);
     },
     pickProgress: function() {

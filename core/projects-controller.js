@@ -15,10 +15,10 @@ var controller = {
         const directory = 'public/images/projects/' + projectId;
         const publicDirectory = '/images/projects/' + projectId;
         try {
-            var files = fs.readdirSync(directory);
+            var files = fs.readdirSync(directory, { withFileTypes: true }).filter(dirent => !dirent.isDirectory());
             var images = [];
             for (var i in files) {
-                images.push(publicDirectory + '/' + files[i]);
+                images.push(publicDirectory + '/' + files[i].name);
             }
             return images;
         } catch (exception) {
