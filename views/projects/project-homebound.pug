@@ -40,7 +40,20 @@ block content
     div(class="separator")
     if (project.getit)
       h2 Get it!
-      p!= project.getit
+      p Homebound is currently being released in an episodic format through any of the following methods:
+      p Physical copy: 
+        a(href="https://www.etsy.com/shop/crljmb?section_id=44562004") etsy
+      p Digital copy: 
+        a(href="https://itch.io/c/3574107/homebound-a-graphic-novel") itch.io
+      p Direct message: 
+        a(href="https://www.instagram.com/crljmb/") instagram
+        |  | 
+        a(href="https://twitter.com/crljmb") twitter
+        |  |  
+        a(href="https://crljmb.tumblr.com/") tumblr
+        |  |  
+        a(href="mailto:crljmb@outlook.com") email
+
     div(class="separator")
     if (pages && pages.length > 0)
       div(class="images")
@@ -55,8 +68,14 @@ block content
         p!= project.long
       if (project.about)
         h2 About
-        each line in project.about
-          p!= line
+        p Follow the story of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.
+        p Together, they embark on a road trip full of comedy, action and slice-of-life scenes across a cozy yet mysterious planet, on a journey to find the baby's home.
+        p Age: 12 years and up.
+        p Release schedule:
+        p Issue #1: September 30th - read it 
+          a(href="/files/homebound-1-web.pdf") here
+        p Issue #2: October 30th
+        p Issue #3-5: soon!
         div(class="separator")
         h2 Some behind the scenes
             div(class="images")
@@ -76,29 +95,35 @@ block content
           h4= role
           p!= person
         h4 Proof-reading and overall support
-        table
-          tr(class="credits")
-            td(class="credits") Pablo
-            td(class="credits") Christine
-            td(class="credits") Donna
-            td(class="credits") Robin
-          tr(class="credits")
-            td(class="credits") Johanna
-            td(class="credits") Jarien
-            td(class="credits") Liz
-            td(class="credits") Ali
-          tr(class="credits")
-            td(class="credits") Britt
-            td(class="credits") Monica
-            td(class="credits") Daniele
-            td(class="credits") Elena
-          tr(class="credits")
-            td(class="credits") Pferv
-            td(class="credits") Miguel
-            td(class="credits") Joao
-            td(class="credits") Emanuela
-          tr(class="credits")
-            td(class="credits") Sergio
-            td(class="credits") Ana
-            td(class="credits") Dan
-            td(class="credits") and Half of Boston
+        table(class="credits")
+          tr
+            td Pablo
+            td Christine
+            td Donna
+            td Robin
+          tr
+            td Johanna
+            td Jarien
+            td Liz
+            td Ali
+          tr
+            td Britt
+            td Monica
+            td Daniele
+            td Elena
+          tr
+            td Pferv
+            td Miguel
+            td Joao
+            td Emanuela
+          tr
+            td Sergio
+            td Ana
+            td Dan
+            td UPS Dave
+          tr
+            td John
+            td Gideon
+            td Romita
+            td Adj
+            td and Half of Boston

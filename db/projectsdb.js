@@ -15,7 +15,7 @@ var database = {
             template: "projects/project-homebound",
             about: ["Follow the story of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.",
                     "Together, they embark on a road trip full of comedy, action and slice-of-life scenes across a cozy yet mysterious planet, on a journey to find the baby's home.",
-                    "Page count: 250-ish",
+                    "Page count: 250-ish when finished",
                     "12 years and up"
             ],
             getit: "Soon on <a href='https://thebadladns.itch.io/homebound-wip'>itch.io</a>?",
