@@ -37,6 +37,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { image: img, desc: gallery[img], detail: detail});
 });
 
+router.get("/about/crljmb", function(req, res, next) {
+  res.render('about-crljmb', {});
+});
+
 router.get("/about", function(req, res, next) {
   var cards = [
     {

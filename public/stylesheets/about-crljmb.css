@@ -1,0 +1,51 @@
+
+body {
+  font-size: 16px;
+  font-family: 'Anonymous Pro', 'Courier new', monospace;
+}
+
+.footer {
+  border-top: 1px dashed black;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-right: 50px;
+  text-align: right;
+}
+
+a {
+  color: #3090fa;
+}
+
+.title-header {
+  min-height:85vh;
+  background-image:url(/images/crljmb/wfh-banner-wide-tall.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.title-text {
+  margin: 0px;
+  text-align: center;
+  color: #FFF;
+  background-color: #00000033;
+  padding: 20px;
+}
+.main {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 24px;
+  max-width: 66%;
+  margin: auto
+}
+
+@media only screen and (max-width: 768px) {
+  .title-header {
+    min-height:500px;
+  }
+  .main {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    max-width: 100%;
+  }
+}
