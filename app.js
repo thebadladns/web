@@ -3,13 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var vhost = require('vhost');
 
 var indexRouter = require('./routes/index');
 var projectsRouter = require('./routes/projects');
 var storiesRouter = require('./routes/stories');
 var apiRouter = require('./routes/api');
 
-var subdomain = require('express-subdomain');
+// var subdomain = require('express-subdomain');
 
 var app = express();
 
@@ -22,6 +23,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// top-level domain redirect
+app.use(vhost('crljmb.com', function(req, res, next) { req.url = "/about/crljmb"; next(); }));
+// any.crljmb.com redirect
+app.use(vhost('*.crljmb.com', function(req, res, next) { req.url = "/about/crljmb"; next(); }));
 
 app.use('/', indexRouter);
 app.use('/projects', projectsRouter);
