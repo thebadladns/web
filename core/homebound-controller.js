@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const getImages = function(dataDir, publicDir) {
     try {
-        var files = fs.readdirSync(dataDir, { withFileTypes: true }).filter(dirent => !dirent.isDirectory());
+        var files = fs.readdirSync(dataDir, { withFileTypes: true }).filter(dirent => !dirent.isDirectory() && /(jpeg|jpg|png|gif)$/.test(dirent.name));
         var images = [];
         for (var i in files) {
             images.push(publicDir + '/' + files[i].name);

@@ -37,17 +37,36 @@ block content
             if (project.data.year)
               p
                 span= project.data.year
-    div(class="separator")
-    if (project.getit)
-      h2 Get it!
-      p Homebound is currently being released in an episodic format through any of the following methods:
-      p Physical copy: 
-        a(href="https://www.etsy.com/shop/crljmb?section_id=44562004") etsy
+    div(id="details")
+      div(class="separator")
+      div(class="separator")
+
+      h2 Get it: 
+      h3
+        a(href="https://www.etsy.com/shop/crljmb?section_id=44562004" target="_blank") etsy
         |  | 
-        a(href="https://www.radiatorcomics.com/series/homebound/") radiator comics
-      p Digital copy: 
-        a(href="https://itch.io/c/3574107/homebound-a-graphic-novel") itch.io
-      p Direct message: 
+        a(href="https://www.radiatorcomics.com/series/homebound/" target="_blank") radiator comics
+        |  | 
+        a(href="/files/homebound-1-web.pdf#view=fit") online sample
+      div(class="separator")
+
+      if (pages && pages.length > 0)
+        div(class="images")
+          ul(class="images")
+            li(style="writing-mode: vertical-lr; text-orientation: mixed; vertical-align: middle") ↑ (scroll me!) ↑
+            each page in pages
+              a(href=page target="_blank")
+                li
+                  img(src= page)
+        div(class="separator")
+
+      h2 About
+      p Follow the story of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.
+      p Together, they embark on a road trip full of comedy, action and slice-of-life scenes across a cozy yet mysterious planet, on a journey to find the baby's home.
+      div(class="separator")
+
+      h2 Contact:
+      p
         a(href="https://www.instagram.com/crljmb/") instagram
         |  | 
         a(href="https://twitter.com/crljmb") twitter
@@ -55,102 +74,116 @@ block content
         a(href="https://crljmb.tumblr.com/") tumblr
         |  |  
         a(href="mailto:crljmb@outlook.com") email
+      div(class="separator")
 
-    div(class="separator")
-    if (pages && pages.length > 0)
-      div(class="images")
-        ul(class="images")
-          each page in pages
-            a(href= page)
-              li
-                img(src= page)
-    div(class="separator")
-    div(class="content")
-      if (project.long)
-        p!= project.long
-      if (project.about)
-        h2 About
-        p Follow the story of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.
-        p Together, they embark on a road trip full of comedy, action and slice-of-life scenes across a cozy yet mysterious planet, on a journey to find the baby's home.
-        p Age: 12 years and up.
-        p Release schedule:
-        p Issue #1: September 30th -
-          |  
-          a(href="https://www.etsy.com/listing/1535445414/homebound-1") etsy
-          |  | 
-          a(href="https://www.radiatorcomics.com/shop/uncategorized/homebound-no-1/") radiator comics
-          |  | 
-          a(href="https://crljmb.itch.io/homebound-1") itch.io
-        p Issue #2: November 6th -
-          |  
-          a(href="https://www.etsy.com/listing/1576334445/homebound-2") etsy
-          |  | 
-          a(href="https://www.radiatorcomics.com/shop/uncategorized/homebound-no-2/") radiator comics
-          |  | 
-          a(href="https://crljmb.itch.io/homebound-2") itch.io
-        p Issue #3: December 7th -
-          |  
-          a(href="https://www.etsy.com/listing/1562152206/homebound-3") etsy
-          |  | 
-          a(href="https://www.radiatorcomics.com/shop/uncategorized/homebound-no-3/") radiator comics
-          |  | 
-          a(href="https://crljmb.itch.io/homebound-3") itch.io
-        p Issue #4: January 16th -
-          |  
-          a(href="https://www.etsy.com/listing/1576341127/homebound-4") etsy
-          |  | 
-          a(href="https://www.radiatorcomics.com/shop/uncategorized/homebound-no-4/") radiator comics
-          |  | 
-          a(href="https://crljmb.itch.io/homebound-4") itch.io
-        p Issue #5: stay tuned!
-        div(class="separator")
+      if (progress)
         h2 Some behind the scenes
             div(class="images")
                 ul(class="images")
                   each image in progress
-                    a(href= image)
+                    a(href=image target="_blank")
                       li
                         img(src= image)
-      if (project.ludography)
-        h2 Ludography
-        each entry in project.ludography
-          p= "◍ " + entry
-      if (project.credits)
         div(class="separator")
-        h2 Credits
-        each person, role in project.credits
-          h4= role
-          p!= person
-        h4 Proof-reading and overall support
-        table(class="credits")
-          tr
-            td Pablo
-            td Christine
-            td Donna
-            td Robin
-          tr
-            td Johanna
-            td Jarien
-            td Liz
-            td Ali
-          tr
-            td Britt
-            td Monica
-            td Daniele
-            td Elena
-          tr
-            td Pferv
-            td Miguel
-            td Joao
-            td Emanuela
-          tr
-            td Sergio
-            td Ana
-            td Dan
-            td UPS Dave
-          tr
-            td John
-            td Gideon
-            td Romita
-            td Adj
-            td and Half of Boston
+
+      h2 Credits
+      each person, role in project.credits
+        h4= role
+        p!= person
+      h4 Special thanks
+      table(class="credits")
+        tr
+          td Rafa
+          td Christine
+          td Donna
+          td Robin
+        tr
+          td Johanna
+          td Sarah
+          td Mitch
+          td Mira
+        tr
+          td Pablo
+          td Mom & dad
+          td Millie
+          td Sam
+        tr
+          td Jarien
+          td Liz
+          td Ali
+          td Alyssa
+        tr
+          td Britt
+          td Vicki
+          td Daniele
+          td John G
+        tr
+          td Pferv
+          td Miguel
+          td João
+          td Emanuela
+        tr
+          td Alberto
+          td Iván
+          td Juan
+          td Andrea
+        tr
+          td Dan
+          td UPS Dave
+          td Sergio
+          td Ana
+        tr
+          td Rocío
+          td Jesús
+          td Diego
+          td Yolanda
+        tr
+          td Jorge
+          td Leticia
+          td Belén
+          td Antonio
+        tr
+          td Dustin
+          td Campbell
+          td Ekin
+          td Esteban
+        tr
+          td Ben
+          td Eli
+          td Jacob
+          td Noreen
+        tr
+          td Susan
+          td John P
+          td Rachael
+          td Callista
+        tr
+          td Felicia
+          td Greg
+          td Vitya
+          td Brandon
+        tr
+          td Philip M
+          td Philip H
+          td Kip
+          td John N
+        tr
+          td Luli
+          td Gideon
+          td Romita
+          td Sam
+        tr
+          td Jess
+          td Scott
+          td Amber
+          td Chris
+        tr
+          td Molli
+          td Michael
+          td Matthew 
+          td Megan 
+        tr
+          td MICE 
+          td Radiator Comics
+          td Adj
+          td and Half of Boston

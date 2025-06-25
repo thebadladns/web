@@ -4,13 +4,13 @@ var database = {
             _class: "project",
             id: "homebound",
             title: "Homebound",
-            year: "2021-2023",
+            year: "2021-2025",
             type: "comic",
             short: "A tale of astronauts, talking lizards and a lost baby",
             data: {
                 type: "Comic",
-                platform: "Print, Web",
-                year: "2021-2023"
+                platform: "Print",
+                year: "2021-2025"
             },
             template: "projects/project-homebound",
             about: ["Follow the story of Ona, an 18-month toddler stuck with three strangers: a talking lizard, his human sister and a space traveler.",
@@ -23,7 +23,7 @@ var database = {
                 "Concept, story, art, lettering, book formatting": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)",
                 "Editing, story consulting, support": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
             },
-            status: "almost there"
+            status: "released"
         },
         {
             _class: "project",
