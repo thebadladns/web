@@ -9,8 +9,17 @@ var reader = {
     // handle client-side automatic single or double page layout
     const aspectRatioDevice = window.innerWidth / window.innerHeight;
     const portrait = aspectRatioDevice < 1;
+    this.leftPageElem = document.getElementById("leftPage");
     if (layout === 'auto-layout') {
-      layout = portrait ? "single" : "double";
+      if (portrait) {
+        layout = "single";
+      } else {
+        layout = "double";
+        // before removing the auto-something classes from this element (which will make it appear),
+        // remove the image if we are going to transition to double page layout, since we'll reset
+        // both images down below
+        this.leftPageElem.src = "";
+      }
       // update DOM elements that need the right layout class
       let autoLayoutElems = Array.from(document.getElementsByClassName("auto-layout"));
       for (let elem of autoLayoutElems) {
@@ -21,7 +30,6 @@ var reader = {
     this.layout = layout;
   
     // handle client-side automatic zoom
-    this.leftPageElem = document.getElementById("leftPage");
     if (zoom === 'auto-zoom') {
       let aspectRatioImg = this.leftPageElem.width / this.leftPageElem.height;
       if (this.layout === "double") aspectRatioImg *= 2;

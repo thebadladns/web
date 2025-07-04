@@ -16,6 +16,10 @@ body {
     text-align: center;
 }
 
+.auto-zoom, .auto-layout {
+    visibility: hidden;
+}
+
 .modal {
     display: none;
     position: absolute;
