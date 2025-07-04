@@ -1,3 +1,10 @@
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .modal {
+      font-size: 14px;
+  }
+}
+
 html, body, .pages {
     padding: 0 0 0 0;
     margin: 0;
@@ -138,6 +145,8 @@ body {
     top: 0;
     bottom: 0;
     opacity: 0.4;
+    animation: glow 4s;
+    animation-iteration-count: infinite;
 }
 .nav.prev {
     background-color: var(--nav-bg-color);
@@ -193,4 +202,9 @@ img.fitV {
 @keyframes fade_in {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+@keyframes glow {
+    0%   { opacity:0.4; }
+    50%  { opacity:0.1; }
+    100% { opacity:0.4; }
 }
