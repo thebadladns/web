@@ -8,8 +8,9 @@ var reader = {
 
     // handle client-side automatic single or double page layout
     const aspectRatioDevice = window.innerWidth / window.innerHeight;
-    const portrait = aspectRatioDevice < 1;
     this.leftPageElem = document.getElementById("leftPage");
+    let aspectRatioPage = this.leftPageElem.width / this.leftPageElem.height;
+    const portrait = aspectRatioDevice < 1;
     if (layout === 'auto-layout') {
       if (portrait) {
         layout = "single";
@@ -31,9 +32,8 @@ var reader = {
   
     // handle client-side automatic zoom
     if (zoom === 'auto-zoom') {
-      let aspectRatioImg = this.leftPageElem.width / this.leftPageElem.height;
-      if (this.layout === "double") aspectRatioImg *= 2;
-      zoom = (aspectRatioImg < aspectRatioDevice) ? "fitV" : "fitH";
+      if (this.layout === "double") aspectRatioPage *= 2;
+      zoom = (aspectRatioPage < aspectRatioDevice) ? "fitV" : "fitH";
       // update DOM elements that need the right zoom class
       let autoZoomElems = Array.from(document.getElementsByClassName("auto-zoom"));
       for (let elem of autoZoomElems) {
