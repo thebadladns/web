@@ -24,7 +24,7 @@ body {
 .modal-card {
     border: 1.5px dashed black;
     z-index: 1;
-    padding: 25px;
+    padding: 20px;
 
     color: black;
     background-color: white;
@@ -37,8 +37,7 @@ body {
 }
 .modal-button {
     border: 1.5px dashed black;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 15px;
     display: inline-block;
     vertical-align: middle;
 
