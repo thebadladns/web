@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title=project.title
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/reader.css')
+    script(type="text/javascript" src='/js/reader.js')
+    script.
+      const switchToPage = !{switchToPageFn};
+      const bookInfo = !{bookInfoObj};
+
+  body(onload=`reader.onload(${leftPageIndex}, '${zoom}', '${layout}', '${tutorial}');`)
+  - var onloadFn = !{call};
+  body(onload=leftPageIndex)
+
+    div(id="tutorial" class=`modal tutorial ${(tutorial==="showtutorial") ? "visible" : ""}`)
+      div(class="modal-card")
+        p Tap or click the <strong style="color:gold">gold areas</strong> to navigate left or right.
+        p If you have a keyboard, you can also use the arrow keys.
+        p
+          | Scroll further down the page to change the zoom and layout. If your screen allows for it,
+          |  the desired format is <strong>double page ▯▯</strong>
+        div(class="modal-button" onClick="reader.toggleTutorial(true);") ok!
+
+    div(id="outro" class="modal")
+      div(class="modal-card")
+        if (project.sampleInfo.outro)
+          p!=project.sampleInfo.outro
+        else 
+          p Thank you for reading!
+        a(class="modal-button" href="/projects/" + project.id + "#content") project info
+
+    div(class="book " + layout + " " + zoom)
+
+      div(class="pages " + layout + " " + zoom)
+        div(class="nav prev" onClick="reader.navigateLeft();")
+        div(class="nav next" onClick="reader.navigateRight();")
+
+        img(id="leftPage" src=contentSrcs[0] class="page left " + layout + " " + zoom)
+        if (layout === 'double')
+          img(id="rightPage" src=contentSrcs[1] class="page right " + layout + " " + zoom)
+        
+      each val, index in cachedContentSrcs
+        img(id="cachedPage" + index class="cache")
+
+    div(class="footer ")
+
+      a(class="button" href="/projects/" + project.id + "#content") more info!
+      span(onClick="reader.toggleTutorial(true);")
+        div(class="button tutorial " + tutorial) 
+      span(onClick="reader.toggleLayout();")
+        div(class="button layout " + layout)
+      span(onClick="reader.toggleZoom();")
+        div(class="button zoom " + zoom)

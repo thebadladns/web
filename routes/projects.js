@@ -8,6 +8,15 @@ router.get('/', function(req, res, next) {
   res.render('projects', {title: "Projects of the Badladns", projects: projectsController.all()});
 });
 
+// explicit projects and subpages
+router.get('/asilentnight/sample', function(req, res) {
+  const readerController = require("../core/reader-controller.js");
+  readerController.render('asilentnight', req, res);
+});
+router.get('/homebound/sample', function(req, res) {
+  const readerController = require("../core/reader-controller.js");
+  readerController.render('homebound', req, res);
+});
 router.get('/homebound', function(req, res) {
   const homeboundController = require("../core/homebound-controller.js");
   var project = homeboundController.get('homebound');

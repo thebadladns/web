@@ -23,7 +23,27 @@ var database = {
                 "Concept, story, art, lettering, book formatting": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)",
                 "Editing, story consulting, support": "Rafa de la Hoz (<a href='https://twitter.com/thegraffo'>@thegraffo</a>)"
             },
-            status: "released"
+            sampleInfo: {
+                imagePrefix: "/images/projects/homebound/samples/homebound_",
+                imageSuffix: ".png",
+                layoutSinglePages: [
+                    1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,
+                    31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
+                    61,62,63,64,65,66,67
+                ],
+                layoutDoublePages: [
+                    [ 0, 1],[ 2, 3],[ 4, 5],[ 6, 7],[ 8, 9],[10,11],[12,13],[14,15],[16,17],[18,19],
+                    [20,21],[22,23],[24,25],[26,27],[28, 0],[29,30],[31,32],[33,34],[35,36],[37,38],[39,40],
+                    [41,42],[43,44],[45,46],[47,48],[49,50],[51, 0],[52,53],[54,55],[56,57],[58,59],
+                    [60,61],[62,63],[64,65],[66,67]
+                ],
+                outro: "That's it! <br/> Those are the first pages of Homebound.<br/> \
+                        If you liked it, here’s the good news: there’s more! \
+                        Five books, 264 pages total! plus a lot of behind the scene sketches!<br/> \
+                        Color covers, even! Wowsies!<br/> \
+                        Check out the details here:"
+            },
+            status: "almost there"
         },
         {
             _class: "project",
@@ -117,9 +137,19 @@ var database = {
                     "Originally planned as a two-part comic book, the project was eventually re-scoped into a single issue release as most ideas for a second chapter were further pushing it into an undesired glorification of violence.",
                     "Part I was developed between the Summer of 2016 and early 2017."
             ],
-            getit: "The pdf is available <a href='/files/A Silent Night - web.pdf'>here</a>",
+            getit: "<a href='/projects/asilentnight/sample'>Read online</a>",
             credits: {
                 "Concept, Art": "Carlos Jambrina (<a href='https://twitter.com/crljmb'>@crljmb</a>)"
+            },
+            sampleInfo: {
+                imagePrefix: "/images/projects/asilentnight/samples/",
+                imageSuffix: ".png",
+                layoutSinglePages:
+                [1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+                layoutDoublePages: [
+                    [25, 1],[ 0, 2],[ 3, 4],[ 5, 6],[ 7, 8],[ 9,10],[11,12],[13,14],[15,16],[17,18],
+                    [19,20],[21,22],[23,24]
+                ],
             },
             status: "released"
         },

@@ -15,7 +15,7 @@ var controller = {
         const directory = 'public/images/projects/' + projectId;
         const publicDirectory = '/images/projects/' + projectId;
         try {
-            var files = fs.readdirSync(directory, { withFileTypes: true }).filter(dirent => !dirent.isDirectory());
+            var files = fs.readdirSync(directory, { withFileTypes: true }).filter(dirent => !dirent.isDirectory() && /(jpeg|jpg|png|gif)$/.test(dirent.name));
             var images = [];
             for (var i in files) {
                 images.push(publicDirectory + '/' + files[i].name);
