@@ -86,16 +86,16 @@ body {
     animation: shake 0.05s; 
 }
 .button.zoom.fitH:before {
-    content: "switch to vertical fit";
+    content: "fit images vertically";
 }
 .button.zoom.fitV:before {
-    content: "switch to horizontal fit";
+    content: "fit images horizontally";
 }
 .button.layout.single:before {
     content: "switch to double page layout ▯▯";
 }
 .button.layout.double:before {
-    content: "switch to single page layout ▯▯";
+    content: "switch to single page layout ▯";
 }
 .button.tutorial.showtutorial:before {
     content: "hide tutorial";
