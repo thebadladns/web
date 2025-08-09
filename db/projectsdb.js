@@ -43,7 +43,7 @@ var database = {
                         Color covers, even! Wowsies!<br/> \
                         Check out the details here:"
             },
-            status: "almost there"
+            status: "released"
         },
         {
             _class: "project",
