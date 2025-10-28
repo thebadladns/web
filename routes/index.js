@@ -46,13 +46,13 @@ router.get("/about", function(req, res, next) {
     {
       name: 'Rafa de la Hoz',
       img: '/images/thegraffo.png', img_alt: '/images/thegraffo-alt.png',
-      social: '<a href="https://twitter.com/thegraffo">@thegraffo</a>',
+      social: '<a href="https://bsky.app/profile/thegraffo.bsky.social">@thegraffo</a>',
       traits: ['Creative extraordinaire', 'Scholar of game design', 'Likes weird things']
     },
     {
       name: 'Carlos Jambrina',
       img: '/images/crljmb.png', img_alt: '/images/crljmb-alt.png',
-      social: '<a href="https://twitter.com/crljmb">@crljmb</a>',
+      social: '<a href="https://bsky.app/profile/crljmb.bsky.social">@crljmb</a>',
       traits: ['Illustrateur magnificient', 'Technically wonderful', 'Eats really healthy']
     },
   ];
